@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
+import {useHistory} from "react-router-dom"
 
 function Signup({ setCurrentUser }) {
+    const history = useHistory()
+
     const [formData, setFormData] = useState({
         name: '',
         age: 0,
@@ -18,7 +21,6 @@ function Signup({ setCurrentUser }) {
             ...formData,
             [key]: e.target.value
         })
-        console.log(formData)
     }
 
     const configObj = {
@@ -32,17 +34,19 @@ function Signup({ setCurrentUser }) {
 
     const createUser = (e) => {
         e.preventDefault()
-
         fetch("/signup", configObj)
             .then(r => {
                 if (r.ok) {
-                    r.json().then(setCurrentUser)
+                    r.json().then(data => {
+                        console.log(data)
+                        setCurrentUser(data)
+                        // history.push("/")
+                    })
                 } else {
                     // Console.log errors
                     r.json().then(console.log)
                 }
             })
-            .then(console.log)
     }
 
     return (

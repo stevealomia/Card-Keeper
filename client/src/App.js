@@ -44,7 +44,7 @@ function App() {
     <>
       <Login setCurrentUser={setCurrentUser} />
       Don't have an account? <button onClick={signUpForm}>Click to Sign Up!</button>
-      {showSignUp ? <Signup /> : null}
+      {showSignUp ? <Signup setCurrentUser={setCurrentUser} /> : null}
     </>)
 
   return (

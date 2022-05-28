@@ -1,9 +1,12 @@
 import React, {useState} from "react"
+import {useHistory} from "react-router-dom"
 import EditProfile from "./EditProfile"
 
 function User({ userDetails, setCurrentUser }) {
     const [showEditForm, setShowEditForm] = useState(false)
     const { name, age, email, password_digest, credit_score } = userDetails
+    const history = useHistory()
+
 
     const toggleEditForm = () => {
         setShowEditForm(!showEditForm)
