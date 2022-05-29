@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
-import CardDetails from "./CardDetails"
-import Grid from "@mui/material/Grid"
-import { flexbox } from "@mui/system"
+import CardDetails from "../components/CardDetails"
+// import Grid from "@mui/material/Grid"
+// import { flexbox } from "@mui/system"
 // import Paper from '@mui/material/Paper'
 // import Grid from '@mui/material/Grid'
 
