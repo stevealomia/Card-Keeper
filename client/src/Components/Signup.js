@@ -1,9 +1,8 @@
 import React, { useState } from 'react'
-import {useHistory} from "react-router-dom"
+import Error from "../styles/Error"
 
 function Signup({ setCurrentUser }) {
-    const history = useHistory()
-
+    const [errors, setErrors] = useState([])
     const [formData, setFormData] = useState({
         name: '',
         age: 0,
@@ -40,14 +39,18 @@ function Signup({ setCurrentUser }) {
                     r.json().then(data => {
                         console.log(data)
                         setCurrentUser(data)
-                        // history.push("/")
                     })
                 } else {
                     // Console.log errors
-                    r.json().then(console.log)
+                    r.json().then(e => {
+                        console.log(e.errors)
+                        setErrors(e.errors)
+                    })
                 }
             })
     }
+    console.log(errors)
+    // const renderErrors = errors.map(e => <Error key={e}>{e}</Error>)
 
     return (
         <form onSubmit={createUser}>
@@ -56,12 +59,13 @@ function Signup({ setCurrentUser }) {
             Age:
             <input onChange={handleChange} value={age} name="age" type="number" />
             Credit Score:
-            <input onChange={handleChange} value={credit_score} name="credit_score" type="number" min="0" max="850" />
+            <input onChange={handleChange} value={credit_score} name="credit_score" type="number" />
             Email:
             <input onChange={handleChange} value={email} name="email" type="email" />
             Password:
             <input onChange={handleChange} value={password} name="password" type="password" />
             <input type="submit" />
+            {/* {renderErrors} */}
         </form>
     )
 }

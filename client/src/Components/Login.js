@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
+import Error from '../styles/Error'
 
 function Login({ setCurrentUser }) {
-    const [errors, setErrors] = useState()
+    const [errors, setErrors] = useState([])
     const [formData, setFormData] = useState({
         email: '',
         password: ''
@@ -35,17 +36,16 @@ function Login({ setCurrentUser }) {
                     })
                 } else {
                     // Console.log errors
-                    r.json().then(errors => {
-                        console.log(errors)
-                        setErrors(errors)
+                    r.json().then(err => {
+                        console.log(err.error)
+                        setErrors(err.error)
                     })
                 }
             })
     }
+    console.log(errors)
+    const renderError = <Error key={errors}>{errors}</Error>
 
-    // const displayErrors = () => {
-    //     <p>{errors}</p>
-    // }
 
     return (
         <>
@@ -56,7 +56,7 @@ function Login({ setCurrentUser }) {
                 Password:
                 <input onChange={handleChange} value={password} name="password" type="password" />
                 <input type="submit" />
-                {/* {errors ? displayErrors() : null} */}
+                {/* {renderError} */}
             </form>
         </>
     )
