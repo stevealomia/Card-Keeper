@@ -1,14 +1,20 @@
 import React from "react"
 
-function CardDetails() {
+
+function CardDetails({ card }) {
     return (
-    <div>
         <div>
-            Card Detail 1
+            <img src={card.img_url} />
+
+                <h4>
+                 {card.name}
+                </h4>
+        
+            <div>
+                {card.description}
+            </div>
         </div>
-        <div>
-            Card Detail 2
-        </div>
-    </div>
-    )}
+    )
+}
+
 export default CardDetails

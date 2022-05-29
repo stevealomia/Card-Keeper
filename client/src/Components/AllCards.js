@@ -1,32 +1,44 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
+import CardDetails from "./CardDetails"
+import Grid from "@mui/material/Grid"
+import { flexbox } from "@mui/system"
+// import Paper from '@mui/material/Paper'
+// import Grid from '@mui/material/Grid'
 
 function AllCards() {
+    const [data, setData] = useState([])
+
+
+    useEffect(() => {
+        fetch('/credit_cards')
+            .then((r) => r.json())
+            .then((x) => setData(x))
+    }, [])
+    // console.log(data)
+
+
+    const cardList = data.length ? data.map((card) =>
+        // <Grid item>
+            <CardDetails card={card} />
+        // </Grid>
+    ) : null
+
+    // console.log(data.length)
+
     return (
-    <div>
         <div>
-            Card 1
+            {/* <Paper> */}
+                {/* test */}
+            {/* </Paper> */}
+            {/* {data.length ?  */}
+            {/* <Grid > */}
+                <div style={{display:'flex', overflowY:'hidden', overflowX:'auto'}}>
+                {cardList}
+                </div>
+                
+            {/* </Grid> */}
+            {/* // : null} */}
         </div>
-        <div>
-            Card 2
-        </div>
-        <div>
-            Card 3
-        </div>
-        <div>
-            Card 4
-        </div>
-        <div>
-            Card 5
-        </div>
-        <div>
-            Card 6
-        </div>
-        <div>
-            Card 7
-        </div>
-        <div>
-            Card 8
-        </div>
-    </div>
-    )}
+    )
+}
 export default AllCards
