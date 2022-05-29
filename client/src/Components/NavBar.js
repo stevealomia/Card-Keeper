@@ -40,27 +40,22 @@ function NavBar() {
         Home
       </NavLink>
       <NavLink
-      exact to="/profile"
-      activeStyle={active}
-      >
-        Account Details
-      </NavLink>
-      <NavLink
       exact to="/allCards"
       activeStyle={active}
       >
         Browse All Reward Cards
       </NavLink>
-      {/* <NavLink
-      exact to="/cardDetails"
-      >
-        See A Card's Details
-      </NavLink> */}
       <NavLink
-      exact to="/login"
+      exact to="/savedCards"
       activeStyle={active}
       >
-        Log Out
+        My Saved Cards
+      </NavLink>
+      <NavLink
+      exact to="/profile"
+      activeStyle={active}
+      >
+        Edit Account Details
       </NavLink>
     </div>
   )

@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
-import {useHistory} from "react-router-dom"
 
 function Signup({ setCurrentUser }) {
-    const history = useHistory()
 
     const [formData, setFormData] = useState({
         name: '',
@@ -40,11 +38,10 @@ function Signup({ setCurrentUser }) {
                     r.json().then(data => {
                         console.log(data)
                         setCurrentUser(data)
-                        // history.push("/")
                     })
                 } else {
                     // Console.log errors
-                    r.json().then(console.log)
+                    r.json().then(e => console.log(e))
                 }
             })
     }
@@ -56,7 +53,7 @@ function Signup({ setCurrentUser }) {
             Age:
             <input onChange={handleChange} value={age} name="age" type="number" />
             Credit Score:
-            <input onChange={handleChange} value={credit_score} name="credit_score" type="number" min="0" max="850" />
+            <input onChange={handleChange} value={credit_score} name="credit_score" type="number" />
             Email:
             <input onChange={handleChange} value={email} name="email" type="email" />
             Password:
