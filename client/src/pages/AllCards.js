@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import CardDetails from "../components/CardDetails"
+import CardDetails from "../Components/CardDetails"
 // import Grid from "@mui/material/Grid"
 // import { flexbox } from "@mui/system"
 // import Paper from '@mui/material/Paper'

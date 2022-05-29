@@ -5,7 +5,7 @@ import NavBar from "./pages/NavBar"
 import Home from "./pages/Home"
 import AllCards from "./pages/AllCards"
 import User from "./pages/User"
-import Signup from './components/Signup'
+import Signup from './Components/Signup'
 // import Login from './Components/Login.js'
 
 function App() {
