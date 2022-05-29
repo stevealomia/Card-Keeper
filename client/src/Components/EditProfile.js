@@ -1,5 +1,5 @@
-import React, {useEffect, useState} from "react"
-import Input from "./Input"
+import React, {useState} from "react"
+import Input from "../styles/Input"
 
 function EditProfile({setCurrentUser, userDetails}) {
     const [formData, setFormData] = useState({

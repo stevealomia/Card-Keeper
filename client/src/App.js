@@ -1,15 +1,15 @@
 import './App.css';
 import React, { useEffect, useState } from 'react'
 import { Route, Switch } from 'react-router-dom'
-import NavBar from "./Components/NavBar"
-import Home from "./Components/Home"
-import AllCards from "./Components/AllCards"
-import User from "./Components/User"
-import Signup from './Components/Signup.js'
+import NavBar from "./pages/NavBar"
+import Home from "./pages/Home"
+import AllCards from "./pages/AllCards"
+import User from "./pages/User"
+import Signup from './components/Signup.js'
 // import Login from './Components/Login.js'
 
 function App() {
-  const [currentUser, setCurrentUser] = useState("")
+  const [currentUser, setCurrentUser] = useState(null)
 
   // Authorize User is logged in
   useEffect(() => {
