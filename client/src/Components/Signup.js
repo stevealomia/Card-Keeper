@@ -41,7 +41,7 @@ function Signup({ setCurrentUser }) {
                     })
                 } else {
                     // Console.log errors
-                    r.json().then(console.log)
+                    r.json().then(e => console.log(e))
                 }
             })
     }
@@ -53,7 +53,7 @@ function Signup({ setCurrentUser }) {
             Age:
             <input onChange={handleChange} value={age} name="age" type="number" />
             Credit Score:
-            <input onChange={handleChange} value={credit_score} name="credit_score" type="number" min="0" max="850" />
+            <input onChange={handleChange} value={credit_score} name="credit_score" type="number" />
             Email:
             <input onChange={handleChange} value={email} name="email" type="email" />
             Password:
