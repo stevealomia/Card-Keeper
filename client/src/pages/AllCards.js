@@ -7,8 +7,7 @@ function AllCards() {
             .then((r) => r.json())
             .then((x) => setCreditCards(x))
     }, [])
-    console.log(creditCards)
-    const cardList = data.length ? data.map((card) =>
+    const cardList = creditCards.length ? creditCards.map((card) =>
         <CardPreview card={card} />
     ) : null
     return (
