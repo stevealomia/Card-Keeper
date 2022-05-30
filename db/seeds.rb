@@ -24,11 +24,11 @@ CreditCard.create!(img_url: 'https://icm.aexp-static.com/internet/acquisition/us
     name: 'American Express Blue Cash Everyday', 
     description: 'Payment flexibility with $0 buy now pay later up to 15 months', benefits: '3% cashback at US supermarkets, 2% cashback on gas', annual_fee: 0, welcome_bonus: '$250 back after spending $2000 in the first 6 months', apr: '14.74% to 24.74 %')
 
-CreditCard.create!(img_url: 'https://creditcards.chase.com/K-Marketplace/images/cardart/sapphire_preferred_card.png',
+CreditCard.create!(img_url: 'https://creditcards.chase.com/k-marketplace/images/cardart/sapphire_preferred_card.png',
     name: 'Chase Sapphire Preferred', 
     description: 'Travel with style  ', benefits: '5x points on travel purchases, 3x on dining, 3x on streaming services, travel partners', annual_fee: 95, welcome_bonus: '80,000 points after spending $4000 in the first 3 months', apr: '16.24% to 23.24 %')
 
-CreditCard.create!(img_url: 'https://creditcards.chase.com/K-Marketplace/images/cardart/sapphire_reserve_card.png',
+CreditCard.create!(img_url: 'https://creditcards.chase.com/k-marketplace/images/cardart/sapphire_reserve_card.png',
     name: 'Chase Sapphire Reserve', 
     description: 'Experiences traveling and life with a premium touch', benefits: '$300 dollars on travel credit, 10x on hotels after the $300 credit, 10x total points on Chase Dining purchases with Ultimate Rewards, 3x on dining and groceries, travel partners', annual_fee: 550, welcome_bonus: '80,000 points after spending $4000 in the first 3 months', apr: '16.24% to 23.24 %')
 
