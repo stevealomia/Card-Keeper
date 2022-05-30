@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react'
 
-
-
 function CardOffer() {
     const [card, setCard] = useState()
     useEffect(() => {
@@ -9,8 +7,8 @@ function CardOffer() {
         fetch(`/credit_cards/${urlLocation}`)
         .then((r) => r.json())
         .then(data => setCard(data))
-       
     }, [card])
+
     return (
         <div>
             <div>
@@ -33,8 +31,6 @@ function CardOffer() {
             </div>
         </div>
     )
-
-
 }
 
 export default CardOffer
