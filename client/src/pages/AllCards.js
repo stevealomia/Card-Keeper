@@ -3,15 +3,14 @@ import CardPreview from "../Components/CardPreview"
 
 
 function AllCards() {
-    const [data, setData] = useState([])
-
+    const [creditCards, setCreditCards] = useState([])
 
     useEffect(() => {
         fetch('/credit_cards')
             .then((r) => r.json())
-            .then((x) => setData(x))
+            .then((x) => setCreditCards(x))
     }, [])
-    // console.log(data)
+    console.log(creditCards)
 
 
     const cardList = data.length ? data.map((card) =>
@@ -24,7 +23,7 @@ function AllCards() {
         <div>
         
                 <div style={{display:'flex', overflowY:'hidden', overflowX:'auto'}}>
-                {cardList}
+                {renderCards}
                 </div>
        
         </div>

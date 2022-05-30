@@ -16,7 +16,7 @@ class UsersController < ApplicationController
     def update
         user = User.find(session[:user_id])
         # User info not updating (Rendered ActiveModel Serializer Null with Hash) (took out bang operator!)
-        user.update(user_params)
+        user.update!(user_params)
         render json: user, status: :ok
     end
 
