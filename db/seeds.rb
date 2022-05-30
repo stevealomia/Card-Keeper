@@ -8,19 +8,19 @@
 
 puts '💳 Seeding cards...'
 
-CreditCard.create!(img_url: 'https://icm.aexp-static.com/Internet/Acquisition/US_en/AppContent/OneSite/category/cardarts/platinum-card.png',
+CreditCard.create!(img_url: 'https://icm.aexp-static.com/internet/acquisition/us_en/appcontent/onesite/category/cardarts/platinum-card.png',
     name: 'American Express Platinum', 
     description: 'Premium Travel and experiences', benefits: '5x points on flights.  Up tp $200 on Uber cash per year.  Access to over 10+ Centurion lounge and Premium lounges around the world', annual_fee: '$695', welcome_bonus: '125,000 points after spending $6000 in the first 6 months', apr: '16.74% to 23.74 %')
 
-CreditCard.create!(img_url: 'https://icm.aexp-static.com/Internet/Acquisition/US_en/AppContent/OneSite/category/cardarts/gold-card.png',
+CreditCard.create!(img_url: 'https://icm.aexp-static.com/internet/acquisition/us_en/appcontent/onesite/category/cardarts/gold-card.png',
     name: 'American Express Gold', 
     description: 'Enjoy eating at your favorites restaurants', benefits: '4x points on restaurants around the world -4x points at supermarkets in US - $120 on Uber cash', annual_fee: 250, welcome_bonus: '75,000 points after spending $4000 in the first 6 months', apr: '16.74% to 23.74 %')
 
-CreditCard.create!(img_url: 'https://icm.aexp-static.com/Internet/Acquisition/US_en/AppContent/OneSite/category/cardarts/blue-cash-preferred.png',
+CreditCard.create!(img_url: 'https://icm.aexp-static.com/internet/acquisition/us_en/appcontent/onesite/category/cardarts/blue-cash-preferred.png',
     name: 'American Express Blue Cash Preferred', 
     description: 'Get the most out of your favorite supermarket', benefits: '6% cashback at US supermarkets', annual_fee: 95, welcome_bonus: '$0 annual fee waive for the first year, $350 back after spending $3000 in the first 6 months', apr: '16.74% to 23.74 %')
 
-CreditCard.create!(img_url: 'https://icm.aexp-static.com/Internet/Acquisition/US_en/AppContent/OneSite/category/cardarts/blue-cash-everyday.png',
+CreditCard.create!(img_url: 'https://icm.aexp-static.com/internet/acquisition/us_en/appcontent/onesite/category/cardarts/blue-cash-everyday.png',
     name: 'American Express Blue Cash Everyday', 
     description: 'Payment flexibility with $0 buy now pay later up to 15 months', benefits: '3% cashback at US supermarkets, 2% cashback on gas', annual_fee: 0, welcome_bonus: '$250 back after spending $2000 in the first 6 months', apr: '14.74% to 24.74 %')
 
