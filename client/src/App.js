@@ -1,4 +1,4 @@
-import './App.css'; 
+import './App.css';
 import React, { useEffect, useState } from 'react'
 import { Route, Switch } from 'react-router-dom'
 import NavBar from "./pages/NavBar"
@@ -15,11 +15,12 @@ function App() {
   const [selectedCard, setSelectedCard] = useState()
 
   useEffect(() => {
-      fetch('/credit_cards')
-          .then((r) => r.json())
-          .then((cards) => {
-            // console.log(cards)
-            setCreditCards(cards)})
+    fetch('/credit_cards')
+      .then((r) => r.json())
+      .then((cards) => {
+        // console.log(cards)
+        setCreditCards(cards)
+      })
   }, [])
 
   // Authorize User is logged in
@@ -35,6 +36,13 @@ function App() {
   const grabSelectedCard = (card) => {
     setSelectedCard(card)
   }
+
+  const addToFavorites = (e) => {
+    e.stopPropagation()
+    console.log("hi!")
+    // make a post request to /favorite_cards
+}
+
 
   if (!currentUser) return (
     <div>
@@ -61,10 +69,10 @@ function App() {
           <User setCurrentUser={setCurrentUser} userDetails={currentUser} />
         </Route>
         <Route exact path="/creditCards">
-          <AllCards grabSelectedCard={grabSelectedCard} creditCards={creditCards} />
+          <AllCards grabSelectedCard={grabSelectedCard} creditCards={creditCards} addToFavorites={addToFavorites} />
         </Route>
         <Route path="/creditCards/:id">
-          <SingleCard selectedCard={selectedCard}/>
+          <SingleCard selectedCard={selectedCard} addToFavorites={addToFavorites} />
         </Route>
       </Switch>
     </div>

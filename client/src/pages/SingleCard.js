@@ -1,34 +1,12 @@
-import React, { useState, useEffect } from 'react'
-import { useParams } from "react-router-dom"
+import React from 'react'
 
-function SingleCard({selectedCard} ) {
 
-    const {id, img_url, name, description, benefits, apr, annual_fee, welcome_bonus} = selectedCard
-    // const [card, setCard] = useState()
-    // console.log(card)
-    // const { id } = useParams()
+function SingleCard({ selectedCard, addToFavorites }) {
 
-    // useEffect(() => {
-    //     fetch(`/credit_cards/${id}`)
-    //         .then((r) => r.json())
-    //         .then(card => {
-    //             console.log(card)
-    //             setCard(card)})
-    // }, [])
-
-    // console.log(selectedCard)
-
-    const addToFavorites = () => {
-        console.log("hi!")
-        // make a post request to /favorite_cards
-    }
-
-    // const showCardDetails = () => {
-
-    // }
+    const { img_url, name, description, benefits, apr, annual_fee, welcome_bonus } = selectedCard
 
     return (
-        <div key={id}>
+        <div key={name}>
             <img src={img_url} alt={name} />
             <h1>{name}</h1>
             <h2>{description}</h2>
