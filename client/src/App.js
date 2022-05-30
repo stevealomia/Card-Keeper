@@ -7,10 +7,18 @@ import AllCards from "./pages/AllCards"
 import User from "./pages/User"
 import Signup from './Components/Signup'
 // import Login from './Components/Login.js'
-import CardOffer from './pages/CardOffer';
+import SingleCard from './pages/SingleCard';
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null)
+  const [creditCards, setCreditCards] = useState([])
+  const [selectedCard, setSelectedCard] = useState()
+
+  useEffect(() => {
+      fetch('/credit_cards')
+          .then((r) => r.json())
+          .then((cards) => setCreditCards(cards))
+  }, [])
 
   // Authorize User is logged in
   useEffect(() => {
@@ -21,6 +29,10 @@ function App() {
         }
       })
   }, [])
+
+  const grabSelectedCard = (card) => {
+    setSelectedCard(card)
+  }
 
   if (!currentUser) return (
     <div>
@@ -46,11 +58,11 @@ function App() {
         <Route exact path="/profile">
           <User setCurrentUser={setCurrentUser} userDetails={currentUser} />
         </Route>
-        <Route exact path="/allcards">
-          <AllCards />
+        <Route exact path="/creditCards">
+          <AllCards grabSelectedCard={grabSelectedCard} creditCards={creditCards} />
         </Route>
-        <Route path="/cardoffer">
-          <CardOffer />
+        <Route path="/creditCards/:id">
+          <SingleCard selectedCard={selectedCard}/>
         </Route>
       </Switch>
     </div>
