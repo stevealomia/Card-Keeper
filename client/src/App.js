@@ -17,7 +17,9 @@ function App() {
   useEffect(() => {
       fetch('/credit_cards')
           .then((r) => r.json())
-          .then((cards) => setCreditCards(cards))
+          .then((cards) => {
+            // console.log(cards)
+            setCreditCards(cards)})
   }, [])
 
   // Authorize User is logged in

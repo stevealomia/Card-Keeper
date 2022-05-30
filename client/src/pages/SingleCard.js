@@ -28,7 +28,7 @@ function SingleCard({selectedCard} ) {
     // }
 
     return (
-        <div >
+        <div key={id}>
             <img src={img_url} alt={name} />
             <h1>{name}</h1>
             <h2>{description}</h2>

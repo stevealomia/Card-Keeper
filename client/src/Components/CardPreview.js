@@ -17,7 +17,8 @@ function CardPreview({ card, grabSelectedCard }) {
         // })
     }
 
-    const addToFavorites = () => {
+    const addToFavorites = (e) => {
+        e.stopPropagation()
         console.log("hi!")
         // make a post request to /favorite_cards
     }
