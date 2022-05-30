@@ -1,6 +1,6 @@
 import React from 'react'
 import { useHistory } from "react-router-dom"
-import Login from '../components/Login'
+import Login from '../Components/Login'
 
 function Home({ setCurrentUser, currentUser }) {
   const history = useHistory()

@@ -5,8 +5,9 @@ import NavBar from "./pages/NavBar"
 import Home from "./pages/Home"
 import AllCards from "./pages/AllCards"
 import User from "./pages/User"
-import Signup from './components/Signup.js'
+import Signup from './Components/Signup'
 // import Login from './Components/Login.js'
+import CardOffer from './pages/CardOffer';
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null)
@@ -45,8 +46,11 @@ function App() {
         <Route exact path="/profile">
           <User setCurrentUser={setCurrentUser} userDetails={currentUser} />
         </Route>
-        <Route exact path="/allCards">
+        <Route exact path="/allcards">
           <AllCards />
+        </Route>
+        <Route path="/cardoffer">
+          <CardOffer />
         </Route>
       </Switch>
     </div>

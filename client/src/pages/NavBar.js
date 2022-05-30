@@ -40,13 +40,13 @@ function NavBar() {
         Home
       </NavLink>
       <NavLink
-      exact to="/allCards"
+      exact to="/allcards"
       activeStyle={active}
       >
         Browse All Reward Cards
       </NavLink>
       <NavLink
-      exact to="/savedCards"
+      exact to="/savedcards"
       activeStyle={active}
       >
         My Saved Cards

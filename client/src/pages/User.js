@@ -1,5 +1,5 @@
 import React, {useState} from "react"
-import EditProfile from "../components/EditProfile"
+import EditProfile from "../Components/EditProfile"
 
 function User({ userDetails, setCurrentUser }) {
     const [showEditForm, setShowEditForm] = useState(false)
