@@ -1,4 +1,4 @@
-import React, {useState} from "react"
+import React, {useState} from "react" 
 import EditProfile from "../Components/EditProfile"
 
 function User({ userDetails, setCurrentUser }) {
