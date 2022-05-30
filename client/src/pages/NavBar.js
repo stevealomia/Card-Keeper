@@ -34,24 +34,24 @@ const StyledLink = styled(NavLink)`
 function NavBar() {
   return (
     <NavStyle>
-      <NavLink
+      <StyledLink
         exact to="/"
         activeStyle={active}
       >
         Home
-      </NavLink>
-      <NavLink
-        exact to="/allcards"
+      </StyledLink>
+      <StyledLink
+        exact to="/creditCards"
         activeStyle={active}
       >
         Browse All Reward Cards
-      </NavLink>
-      <NavLink
+      </StyledLink>
+      <StyledLink
         exact to="/savedcards"
         activeStyle={active}
       >
         My Saved Cards
-      </NavLink>
+      </StyledLink>
       <StyledLink
         exact to="/profile"
         activeStyle={active}
