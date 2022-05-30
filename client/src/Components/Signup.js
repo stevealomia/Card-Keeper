@@ -50,7 +50,7 @@ function Signup({ setCurrentUser }) {
             })
     }
     console.log(errors)
-    // const renderErrors = errors.map(e => <Error key={e}>{e}</Error>)
+    const renderErrors = errors.map(e => <Error key={e}>{e}</Error>)
 
     return (
         <form onSubmit={createUser}>
@@ -65,7 +65,7 @@ function Signup({ setCurrentUser }) {
             Password:
             <input onChange={handleChange} value={password} name="password" type="password" />
             <input type="submit" />
-            {/* {renderErrors} */}
+            {errors.length > 0 ? renderErrors : null}
         </form>
     )
 }
