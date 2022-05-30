@@ -19,7 +19,7 @@ function CardPreview({ card, grabSelectedCard, addToFavorites }) {
             <h2>{card.name}</h2>
 
             <h4>{card.description}</h4>
-            <button onClick={addToFavorites}>Add to my Wallet!</button>
+            <button onClick={(e) => addToFavorites(e, card)}>Add to my Wallet!</button>
         </div>
     )
 }

@@ -7,7 +7,8 @@ import AllCards from "./pages/AllCards"
 import User from "./pages/User"
 import Signup from './Components/Signup'
 // import Login from './Components/Login.js'
-import SingleCard from './pages/SingleCard';
+import SingleCard from './pages/SingleCard'
+import SavedCardsContainer from "./pages/SavedCardsContainer"
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null)
@@ -37,11 +38,13 @@ function App() {
     setSelectedCard(card)
   }
 
-  const addToFavorites = (e) => {
+  const addToFavorites = (e, card) => {
     e.stopPropagation()
-    console.log("hi!")
+    setSelectedCard(card)
+    console.log(card)
     // make a post request to /favorite_cards
-}
+  }
+  console.log(selectedCard)
 
 
   if (!currentUser) return (
@@ -68,11 +71,16 @@ function App() {
         <Route exact path="/profile">
           <User setCurrentUser={setCurrentUser} userDetails={currentUser} />
         </Route>
-        <Route exact path="/creditCards">
-          <AllCards grabSelectedCard={grabSelectedCard} creditCards={creditCards} addToFavorites={addToFavorites} />
+        <Route exact path="/savedcards">
+          <SavedCardsContainer />
+        </Route>
+        <Route exact path="/creditcards">
+          <AllCards 
+          grabSelectedCard={grabSelectedCard} 
+          creditCards={creditCards} addToFavorites={addToFavorites} />
         </Route>
         <Route path="/creditCards/:id">
-          <SingleCard selectedCard={selectedCard} addToFavorites={addToFavorites} />
+          <SingleCard currentUser={currentUser} selectedCard={selectedCard} />
         </Route>
       </Switch>
     </div>
