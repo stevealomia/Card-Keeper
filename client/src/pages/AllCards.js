@@ -4,7 +4,7 @@ import CardPreview from "../Components/CardPreview"
 function AllCards({ creditCards, grabSelectedCard, addToFavorites }) {
     console.log(creditCards)
 
-    const renderCards = creditCards.map((card) => <CardPreview addToFavorites={addToFavorites} grabSelectedCard={grabSelectedCard} card={card} />)
+    const renderCards = creditCards.map((card) => <CardPreview key={card.id} addToFavorites={addToFavorites} grabSelectedCard={grabSelectedCard} card={card} />)
 
     return (
         <div style={{ display: 'flex', overflowY: 'hidden', overflowX: 'auto' }}>

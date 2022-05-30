@@ -34,6 +34,8 @@ CreditCard.create!(img_url: 'https://creditcards.chase.com/K-Marketplace/images/
 
 puts "Seeding Users"
 
+User.create!(name: "test", email: "test@test.com", password: "test", credit_score: 500, age: 40)
+
 
 
 puts '✅ Done seeding!'
