@@ -79,7 +79,7 @@ function App() {
           grabSelectedCard={grabSelectedCard} 
           creditCards={creditCards} addToFavorites={addToFavorites} />
         </Route>
-        <Route path="/creditCards/:id">
+        <Route path="/creditcards/:id">
           <SingleCard currentUser={currentUser} selectedCard={selectedCard} />
         </Route>
       </Switch>
