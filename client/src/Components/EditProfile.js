@@ -43,9 +43,13 @@ function EditProfile({ setCurrentUser, userDetails }) {
       })
   }
 
+
   const renderErrors = errors.map(e => <Error key={e}>{e}</Error>)
 
+
+
   return (
+
     <form onSubmit={updateUser}>
       Name
       <Input
@@ -86,6 +90,7 @@ function EditProfile({ setCurrentUser, userDetails }) {
       <Input type="submit" value="Update" />
       {errors.length > 0 ? renderErrors : null}
     </form>
+
   )
 }
 

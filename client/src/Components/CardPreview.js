@@ -1,15 +1,15 @@
 import React from "react"
-import { NavLink, useHistory } from 'react-router-dom'
-import SingleCard from "../pages/SingleCard"
+import { useHistory } from 'react-router-dom'
 
 function CardPreview({ card, grabSelectedCard, addToFavorites }) {
     const history = useHistory()
 
     const showCardDetails = (id, card) => {
         grabSelectedCard(card)
-        history.push(`/creditCards/${id}`, card)
-
+        history.push(`/creditcards/${id}`, card)
     }
+
+
 
     return (
         <div
