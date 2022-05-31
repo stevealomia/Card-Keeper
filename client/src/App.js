@@ -19,7 +19,7 @@ function App() {
     fetch('/credit_cards')
       .then((r) => r.json())
       .then((cards) => {
-        // console.log(cards)
+        console.log(cards)
         setCreditCards(cards)
       })
   }, [])
