@@ -16,13 +16,13 @@ function SavedCardsContainer() {
         fetch(`/favorite_cards/${id}`, { method: "DELETE" })
             .then(data => {
                 const newFavorites = favorites.filter(card => card.credit_card_id !== id)
-                console.log(newFavorites)
+                // console.log(newFavorites)
                 setFavorites(newFavorites)
             })
     }
 
     // console.log(favorites)
-    const renderFavorites = favorites.map(card => <SavedCardDetails key={card.id} handleRemove={removeFromFavorites} card={card} />)
+    const renderFavorites = favorites.length > 0 ? favorites.map(card => <SavedCardDetails key={card.id} handleRemove={removeFromFavorites} card={card} />) : "You don't have any saved cards, please add some to you favorites to see them here!"
 
     return (
         <div>

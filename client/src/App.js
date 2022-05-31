@@ -40,9 +40,32 @@ function App() {
 
   const addToFavorites = (e, card) => {
     e.stopPropagation()
-    setSelectedCard(card)
+    // setSelectedCard(card)
     console.log(card)
-    // make a post request to /favorite_cards
+    const configObj = {
+      method: "POST",
+      headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+      },
+      body: JSON.stringify({
+          user_id: currentUser.id,
+          credit_card_id: card.id
+      })
+  }
+
+  fetch("/favorite_cards", configObj)
+      .then(r => {
+          if (r.ok) {
+              r.json().then((cards) => {
+                console.log(cards)
+                alert("Card has been added to your favorites!")
+              })
+          } else {
+              r.json().then(err => console.log(err.errors))
+          }
+      })
+// make a post request to /favorite_cards
   }
   console.log(selectedCard)
 

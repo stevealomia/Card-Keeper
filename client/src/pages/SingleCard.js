@@ -21,7 +21,10 @@ function SingleCard({ currentUser, selectedCard }) {
         fetch("/favorite_cards", configObj)
             .then(r => {
                 if (r.ok) {
-                    r.json().then((cards) => console.log(cards))
+                    r.json().then((cards) => {
+                        console.log(cards)
+                        alert("Card has been added to your favorites!")
+                    })
                 } else {
                     r.json().then(err => setError(err.errors))
                 }
