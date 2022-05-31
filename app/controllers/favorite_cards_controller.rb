@@ -1,5 +1,5 @@
 class FavoriteCardsController < ApplicationController
-    skip_before_action :authorized
+    # skip_before_action :authorized
 
     def index 
         current_user = User.find_by!(id: session[:user_id])

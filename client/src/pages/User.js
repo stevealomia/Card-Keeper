@@ -1,10 +1,20 @@
-import React, {useState} from "react" 
+import React, { useState } from "react"
+import { useHistory } from "react-router-dom"
 import EditProfile from "../Components/EditProfile"
 
 function User({ userDetails, setCurrentUser }) {
-    const [showEditForm, setShowEditForm] = useState(false)
-    const { name, age, email, credit_score } = userDetails
 
+    const [showEditForm, setShowEditForm] = useState(false)
+    const history = useHistory()
+
+    const { id, name, age, email, credit_score } = userDetails
+
+    const deleteUser = () => {
+        fetch(`/users/${id}`, { method: 'DELETE' })
+            .then(data => {
+                setCurrentUser(null)
+                history.push("/")})
+    }
 
 
     const toggleEditForm = () => {
@@ -17,6 +27,7 @@ function User({ userDetails, setCurrentUser }) {
                 <h1>
                     Welcome Back, {name}!
                 </h1>
+                <button onClick={toggleEditForm}>Click to Update your Profile!</button>
                 <h3>
                     Age: {age}
                 </h3>
@@ -27,7 +38,8 @@ function User({ userDetails, setCurrentUser }) {
                     Email: {email}
                 </h3>
 
-                <button onClick={toggleEditForm}>Click to Update your Profile!</button>
+                <button onClick={deleteUser}>Delete My Account</button>
+
                 {showEditForm ? <EditProfile setCurrentUser={setCurrentUser} userDetails={userDetails} /> : null}
             </div>
         </>

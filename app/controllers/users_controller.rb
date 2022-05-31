@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
 
     def show
-        current_user = User.find(session[:user_id])
+        current_user = find_user
         render json: current_user, status: :ok
     end
 
@@ -14,16 +14,25 @@ class UsersController < ApplicationController
     end
 
     def update
-        user = User.find(session[:user_id])
         # User info not updating (Rendered ActiveModel Serializer Null with Hash) (took out bang operator!)
         user.update!(user_params)
         render json: user, status: :ok
     end
 
+    def destroy 
+        current_user = find_user
+        current_user.destroy
+        head :no_content
+    end
+
 
     # Login and Logout needs to go in Sessions controller
     #secret page that you can only see if you're logged in
-    private 
+    private
+
+    def find_user
+        user = User.find(session[:user_id])
+    end
 
     def user_params
         params.permit(:password, :email, :age, :name, :credit_score)
