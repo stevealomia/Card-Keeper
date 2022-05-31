@@ -5,7 +5,4 @@ class FavoriteCard < ApplicationRecord
   validates :user, uniqueness: { scope: :credit_card, message: "has already saved this card to their Favorites!"}
 
 
-  def show_user_favorites
-
-  end
 end
