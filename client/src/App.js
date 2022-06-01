@@ -15,15 +15,6 @@ function App() {
   const [selectedCard, setSelectedCard] = useState()
   const [error, setError] = useState()
 
-  useEffect(() => {
-    fetch('/credit_cards')
-      .then((r) => r.json())
-      .then((cards) => {
-        console.log(cards)
-        setCreditCards(cards)
-      })
-  }, [])
-
   // Authorize User is logged in
   useEffect(() => {
     fetch("/auth")
@@ -89,7 +80,9 @@ function App() {
         <Route exact path="/">
           <Home
             setCurrentUser={setCurrentUser}
-            currentUser={currentUser} />
+            currentUser={currentUser}
+            setCreditCards={setCreditCards} 
+            />
         </Route>
         <Route exact path="/creditcards">
           <AllCards

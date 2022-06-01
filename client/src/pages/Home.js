@@ -1,13 +1,26 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useHistory } from "react-router-dom"
 import Login from '../Components/Login'
 
-function Home({ setCurrentUser, currentUser }) {
+function Home({ setCurrentUser, currentUser, setCreditCards }) {
+
   const history = useHistory()
+
+  useEffect(() => {
+    fetch('/credit_cards')
+      .then((r) => r.json())
+      .then((cards) => {
+        console.log(cards)
+        setCreditCards(cards)
+      })
+  }, [])
+
 
   const renderSignUpPage = () => {
     history.push("/signup")
   }
+
+
 
   // Log User Out
   const handleLogout = () => {

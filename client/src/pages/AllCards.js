@@ -15,10 +15,10 @@ function AllCards({ creditCards, grabSelectedCard, addToFavorites, error }) {
         <>
             <h3> Click on a Card to Learn More!</h3>
             <p> Click the "Filters" to select your preferred rewards type. You can also select specific card issuers to browse.</p>
+            {error ? renderError : null}
             <div style={{ display: 'flex', overflowY: 'hidden', overflowX: 'auto' }}>
                 {renderCards}
             </div>
-            {error ? renderError : null}
         </>
     )
 }
