@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { useHistory } from "react-router-dom"
 import Login from '../Components/Login'
+import logo from "../styles/logo.png"
 
 function Home({ setCurrentUser, currentUser, setCreditCards }) {
 
@@ -30,7 +31,7 @@ function Home({ setCurrentUser, currentUser, setCreditCards }) {
   return (
     <>
       {/* Think this could be a cool logo or graphic */}
-      <h1 className="display-4 fw-bold lh-1 mb-3">Card Keeper</h1>
+      <img src={logo}/>
       <h2>Your number one resource to hunt for the credit card that matches your lifestyle!  </h2>
 
       {currentUser ?
