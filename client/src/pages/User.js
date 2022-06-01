@@ -19,7 +19,8 @@ function User({ userDetails, setCurrentUser }) {
 
 
     const toggleEditForm = () => {
-        setShowEditForm(!showEditForm)
+        history.push("/editprofile", userDetails)
+        // setShowEditForm(!showEditForm)
         // Could use history to push to a new page rather than toggle?
     }
 
