@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Error from '../styles/Error'
-
+import styles from './../styles/styles.js'
 function Login({ setCurrentUser }) {
     const [error, setError] = useState()
     const [formData, setFormData] = useState({
@@ -48,17 +48,22 @@ function Login({ setCurrentUser }) {
 
 
     return (
-        <>
-            <h1>Login!</h1>
-            <form onSubmit={loginUser}>
-                Email:
-                <input onChange={handleChange} value={email} name="email" type="email" />
-                Password:
-                <input onChange={handleChange} value={password} name="password" type="password" />
-                <input type="submit" />
-                {error ? renderError : null}
-            </form>
-        </>
+        <body >
+            <div style={styles.main}>
+                
+                <div style={styles.email}>
+                    <form onSubmit={loginUser}>
+                        email:
+                        <input style={styles.input} onChange={handleChange} value={email} name="email" type="email" />
+                        password:
+                        <input style={styles.input} onChange={handleChange} value={password} name="password" type="password" />
+                        <input style={styles.submit} type="submit" />
+                        {error ? renderError : null}
+                    </form>
+                </div>
+            </div>
+
+        </body>
     )
 }
 
