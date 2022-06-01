@@ -8,6 +8,7 @@ import User from "./pages/User"
 import Signup from './Components/Signup'
 import SingleCard from './pages/SingleCard'
 import SavedCardsContainer from "./pages/SavedCardsContainer"
+import EditProfile from "./Components/EditProfile"
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null)
@@ -97,13 +98,17 @@ function App() {
         <Route path="/creditcards/:id">
           <SingleCard
             currentUser={currentUser}
-            selectedCard={selectedCard} />
+            // selectedCard={selectedCard} 
+            />
         </Route>
         <Route exact path="/profile">
           <User
             setCurrentUser={setCurrentUser}
             userDetails={currentUser} />
         </Route>
+        <Route exact path="/editprofile">
+          <EditProfile setCurrentUser={setCurrentUser}/>
+          </Route>?
       </Switch>
     </div>
   );

@@ -1,16 +1,23 @@
 import React, { useState } from "react"
+import {useLocation, useHistory} from "react-router-dom"
 import Input from "../styles/Input"
 import Error from "../styles/Error"
 
-function EditProfile({ setCurrentUser, userDetails }) {
+function EditProfile({ setCurrentUser }) {
+  let locate = useLocation()
+  const currentUser = locate.state
   const [errors, setErrors] = useState([])
   const [formData, setFormData] = useState({
-    name: userDetails.name,
-    age: userDetails.age,
-    credit_score: userDetails.credit_score,
-    email: userDetails.email
-  })
+    name: currentUser.name,
+    age: currentUser.age,
+    credit_score: currentUser.credit_score,
+    email: currentUser.email
+  })  
+  
+  const history = useHistory()
 
+
+  
   const handleInput = (e) => {
     console.log(e.target.name, " : ", e.target.value);
     const name = e.target.name
@@ -33,12 +40,13 @@ function EditProfile({ setCurrentUser, userDetails }) {
       body: JSON.stringify(formData)
     }
 
-    fetch(`/users/${userDetails.id}`, configObj)
+    fetch(`/users/${currentUser.id}`, configObj)
       .then(r => {
         if (r.ok) {
           r.json().then(data => {
             setCurrentUser(data)
             setErrors([])
+            history.push('/profile')
           })
         } else {
           r.json().then(err => setErrors(err.errors))
