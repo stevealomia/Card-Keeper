@@ -31,7 +31,7 @@ function Home({ setCurrentUser, currentUser, setCreditCards }) {
   return (
     <>
       {/* Think this could be a cool logo or graphic */}
-      <img src={logo}/>
+      <img src={logo} alt="CardKeeper Logo"/>
       <h2>Your number one resource to hunt for the credit card that matches your lifestyle!  </h2>
 
       {currentUser ?
