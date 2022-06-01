@@ -13,31 +13,31 @@ function User({ userDetails, setCurrentUser }) {
         fetch(`/users/${id}`, { method: 'DELETE' })
             .then(data => {
                 setCurrentUser(null)
-                history.push("/")})
+                history.push("/")
+            })
     }
 
 
     const toggleEditForm = () => {
         setShowEditForm(!showEditForm)
+        // Could use history to push to a new page rather than toggle?
     }
 
     return (
         <>
             <div>
                 <button onClick={toggleEditForm}>Click to Update your Profile!</button>
-                <h3>
-                    Age: {age}
-                </h3>
-                <h3>
-                    Credit Score: {credit_score}
-                </h3>
-                <h3>
-                    Email: {email}
-                </h3>
-
+                <h3>Name: {name}</h3>
+                <h3>Age: {age}</h3>
+                <h3>Credit Score: {credit_score}</h3>
+                <h3>Email: {email}</h3>
                 <button onClick={deleteUser}>Delete My Account</button>
-
-                {showEditForm ? <EditProfile setCurrentUser={setCurrentUser} userDetails={userDetails} /> : null}
+                {showEditForm ?
+                    <EditProfile
+                        setCurrentUser={setCurrentUser}
+                        userDetails={userDetails} />
+                    :
+                    null}
             </div>
         </>
     )

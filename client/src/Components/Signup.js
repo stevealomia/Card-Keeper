@@ -55,7 +55,7 @@ function Signup({ setCurrentUser }) {
                 }
             })
     }
-    console.log(errors)
+
     const renderErrors = errors.map(e => <Error key={e}>{e}</Error>)
 
     return (
