@@ -1,24 +1,39 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useHistory } from "react-router-dom"
 import Login from '../Components/Login'
+<<<<<<< HEAD
 import styles from './../styles/styles.js'
+=======
+import logo from "../styles/logo.png"
 
-function Home({ setCurrentUser, currentUser }) {
-  const history = useHistory()
+function Home({ setCurrentUser, currentUser, setCreditCards }) {
+>>>>>>> 4ea98da806d4361bdd738eb2aaf5871d7bddb1c3
 
-  const renderSignUpPage = () => {
-    history.push("/signup")
-  }
+const history = useHistory()
 
-  // Log User Out
-  const handleLogout = () => {
-    fetch("/logout", { method: "DELETE" })
-      .then(r => r.json())
-      .then(setCurrentUser())
-  }
+useEffect(() => {
+  fetch('/credit_cards')
+    .then((r) => r.json())
+    .then((cards) => {
+      setCreditCards(cards)
+    })
+}, [])
 
-  return (
-    <>
+const renderSignUpPage = () => {
+  history.push("/signup")
+}
+
+const loginAsGuest = () => {
+  fetch('/guest')
+    .then((r) => r.json())
+    .then(data => {
+      setCurrentUser(data)
+      history.push("/")
+    })
+}
+
+return (
+  <>
     <div styel={styles.stacks}>
       <div class="container col-xl-10 col-xxl-8 px-4 py-5">
         <div class="row align-items-center g-lg-5 py-5">
@@ -28,24 +43,25 @@ function Home({ setCurrentUser, currentUser }) {
           </div>
           <div style={styles.stacks} class="checkbox mb-3">
           </div>
-          </div>
-
         </div>
+
+      </div>
 
 
       {currentUser ? null : <div >
 
         <Login setCurrentUser={setCurrentUser} />
         <div style={styles.stacks}>
-        need stacks? <button style={styles.submit} onClick={renderSignUpPage}>go here</button>
-      </div> </div>}
-      <label style={styles.checkbox}>
+          need stacks? <button style={styles.submit} onClick={renderSignUpPage}>go here</button>
+        </div> </div>}
+      {/* <label style={styles.checkbox}>
         <input type="checkbox" value="remember-me" /> remember me
-      </label>
-      {currentUser ? <button onClick={handleLogout}>Logout!</button> : null}
+      </label> */}
+      {/* {currentUser ? <button onClick={handleLogout}>Logout!</button> : null} */}
     </div>
-    </>
-  )
-}
+
+
+  </>
+)
 
 export default Home

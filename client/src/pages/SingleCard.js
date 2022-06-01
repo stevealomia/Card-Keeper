@@ -1,9 +1,19 @@
 import React, { useState } from 'react'
+import { useLocation, useHistory } from 'react-router-dom'
 import Error from "../styles/Error"
 
 
-function SingleCard({ currentUser, selectedCard }) {
+function SingleCard({ currentUser }) {
+    let locate = useLocation()
+    const selectedCard = locate.state
+    
     const [error, setError] = useState()
+
+    const history = useHistory()
+
+    const goBack = () => {
+        history.push("/creditcards")
+    }
 
     const addToFavorites = () => {
         const configObj = {
@@ -21,10 +31,7 @@ function SingleCard({ currentUser, selectedCard }) {
         fetch("/favorite_cards", configObj)
             .then(r => {
                 if (r.ok) {
-                    r.json().then((cards) => {
-                        console.log(cards)
-                        alert("Card has been added to your favorites!")
-                    })
+                    r.json().then((cards) => alert("Card has been added to your favorites!"))
                 } else {
                     r.json().then(err => setError(err.errors))
                 }
@@ -32,19 +39,23 @@ function SingleCard({ currentUser, selectedCard }) {
     }
 
     const { img_url, name, description, benefits, apr, annual_fee, welcome_bonus } = selectedCard
+
     const renderError = <Error key={error}>{error}</Error>
 
     return (
-        <div key={name}>
-            <img src={img_url} alt={name} />
-            <h1>{name}</h1>
-            <h2>{description}</h2>
-            <h3>Benefits: {benefits}</h3>
-            <h3>Welcome Bonus! {welcome_bonus}</h3>
-            <h4>APR: {apr}</h4>
-            <h5>Annual Fee:  ${annual_fee} </h5>
-            <button onClick={addToFavorites}>Add to my Wallet!</button>
-            {error ? renderError : null}
+        <div>
+            <button onClick={goBack}>Go Back</button>
+            <div key={name}>
+                {error ? renderError : null}
+                <img src={img_url} alt={name} />
+                <h1>{name}</h1>
+                <h2>{description}</h2>
+                <h3>Benefits: {benefits}</h3>
+                <h3>Welcome Bonus! {welcome_bonus}</h3>
+                <h4>APR: {apr}</h4>
+                <h5>Annual Fee:  ${annual_fee} </h5>
+                <button onClick={addToFavorites}>Add to my Wallet!</button>
+            </div>
         </div>
     )
 }

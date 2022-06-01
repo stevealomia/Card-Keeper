@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 function Error({ children }) {
+  console.log(children);
   return (
     <Wrapper>
       <Alert>!</Alert>
@@ -10,18 +11,22 @@ function Error({ children }) {
 }
 
 const Wrapper = styled.div`
-  color: red;
-  background-color: mistyrose;
+  color: white;
+  background-color: red;
+  width: fit-content;
   border-radius: 6px;
   display: flex;
+  flex-flow: row;
   padding: 8px;
-  align-items: center;
+  align-items: flex-start;
+  justify-content: space-around;
   gap: 8px;
   margin: 8px 0;
 `;
 
 const Alert = styled.span`
   background-color: white;
+  color: red;
   height: 30px;
   width: 30px;
   border-radius: 50%;

@@ -2,6 +2,7 @@ class UsersController < ApplicationController
     skip_before_action :authorized, only: :create
 
 
+
     def show
         current_user = find_user
         render json: current_user, status: :ok
@@ -15,8 +16,9 @@ class UsersController < ApplicationController
 
     def update
         # User info not updating (Rendered ActiveModel Serializer Null with Hash) (took out bang operator!)
-        user.update!(user_params)
-        render json: user, status: :ok
+        current_user = find_user
+        current_user.update!(user_params)
+        render json: current_user, status: :ok
     end
 
     def destroy 

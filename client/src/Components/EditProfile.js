@@ -1,15 +1,21 @@
 import React, { useState } from "react"
+import { useLocation, useHistory } from "react-router-dom"
 import Input from "../styles/Input"
 import Error from "../styles/Error"
 
-function EditProfile({ setCurrentUser, userDetails }) {
+function EditProfile({ setCurrentUser }) {
+  let locate = useLocation()
+  const currentUser = locate.state
+
   const [errors, setErrors] = useState([])
   const [formData, setFormData] = useState({
-    name: userDetails.name,
-    age: userDetails.age,
-    credit_score: userDetails.credit_score,
-    email: userDetails.email
+    name: currentUser.name,
+    age: currentUser.age,
+    credit_score: currentUser.credit_score,
+    email: currentUser.email
   })
+
+  const history = useHistory()
 
   const handleInput = (e) => {
     console.log(e.target.name, " : ", e.target.value);
@@ -33,64 +39,65 @@ function EditProfile({ setCurrentUser, userDetails }) {
       body: JSON.stringify(formData)
     }
 
-    fetch(`/users/${userDetails.id}`, configObj)
+    fetch(`/users/${currentUser.id}`, configObj)
       .then(r => {
         if (r.ok) {
-          r.json().then(data => setCurrentUser(data))
-        }else {
+          r.json().then(data => {
+            setCurrentUser(data)
+            setErrors([])
+            history.push('/profile')
+          })
+        } else {
           r.json().then(err => setErrors(err.errors))
         }
       })
   }
 
-
   const renderErrors = errors.map(e => <Error key={e}>{e}</Error>)
 
-
-
   return (
-
-    <form onSubmit={updateUser}>
-      Name
-      <Input
-        name="name"
-        type="text"
-        value={formData.name}
-        placeholder={"Your name"}
-        handleInput={handleInput}
-      />
-      <br />
-      Credit Score
-      <Input
-        name="credit_score"
-        type="credit_score"
-        value={formData.credit_score}
-        placeholder={"Your credit_score"}
-        handleInput={handleInput}
-      />
-      <br />
-      Age
-      <Input
-        name="age"
-        type="text"
-        value={formData.age}
-        placeholder={"Your age"}
-        handleInput={handleInput}
-      />
-      <br />
-      Email
-      <Input
-        name="email"
-        type="email"
-        value={formData.email}
-        placeholder={"Your email"}
-        handleInput={handleInput}
-      />
-      <br />
-      <Input type="submit" value="Update" />
-      {errors.length > 0 ? renderErrors : null}
-    </form>
-
+    <>
+      {renderErrors}
+      <form onSubmit={updateUser}>
+        Name
+        <Input
+          name="name"
+          type="text"
+          value={formData.name}
+          placeholder={"Your name"}
+          handleInput={handleInput}
+        />
+        <br />
+        Credit Score
+        <Input
+          name="credit_score"
+          type="credit_score"
+          value={formData.credit_score}
+          placeholder={"Your credit_score"}
+          handleInput={handleInput}
+        />
+        <br />
+        Age
+        <Input
+          name="age"
+          type="text"
+          value={formData.age}
+          placeholder={"Your age"}
+          handleInput={handleInput}
+        />
+        <br />
+        Email
+        <Input
+          name="email"
+          type="email"
+          value={formData.email}
+          placeholder={"Your email"}
+          handleInput={handleInput}
+        />
+        <br />
+        <Input type="submit" value="Update" />
+      </form>
+    </>
   )
 }
 

@@ -6,23 +6,15 @@ import Home from "./pages/Home"
 import AllCards from "./pages/AllCards"
 import User from "./pages/User"
 import Signup from './Components/Signup'
-// import Login from './Components/Login.js'
 import SingleCard from './pages/SingleCard'
 import SavedCardsContainer from "./pages/SavedCardsContainer"
+import EditProfile from "./Components/EditProfile"
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null)
   const [creditCards, setCreditCards] = useState([])
   const [selectedCard, setSelectedCard] = useState()
-
-  useEffect(() => {
-    fetch('/credit_cards')
-      .then((r) => r.json())
-      .then((cards) => {
-        console.log(cards)
-        setCreditCards(cards)
-      })
-  }, [])
+  const [error, setError] = useState()
 
   // Authorize User is logged in
   useEffect(() => {
@@ -32,6 +24,7 @@ function App() {
           res.json().then(user => setCurrentUser(user))
         }
       })
+
   }, [])
 
   const grabSelectedCard = (card) => {
@@ -40,44 +33,42 @@ function App() {
 
   const addToFavorites = (e, card) => {
     e.stopPropagation()
-    // setSelectedCard(card)
-    console.log(card)
     const configObj = {
       method: "POST",
       headers: {
-          "Content-Type": "application/json",
-          "Accept": "application/json"
+        "Content-Type": "application/json",
+        "Accept": "application/json"
       },
       body: JSON.stringify({
-          user_id: currentUser.id,
-          credit_card_id: card.id
+        user_id: currentUser.id,
+        credit_card_id: card.id
       })
-  }
+    }
 
-  fetch("/favorite_cards", configObj)
+    fetch("/favorite_cards", configObj)
       .then(r => {
-          if (r.ok) {
-              r.json().then((cards) => {
-                console.log(cards)
-                alert("Card has been added to your favorites!")
-              })
-          } else {
-              r.json().then(err => console.log(err.errors))
-          }
+        if (r.ok) {
+          r.json().then((cards) => {
+            setError(null)
+            alert("Card has been added to your favorites!")
+            })
+        } else {
+          r.json().then(err => setError(err.errors))
+        }
       })
-// make a post request to /favorite_cards
   }
-  console.log(selectedCard)
-
 
   if (!currentUser) return (
     <div>
       <Switch>
         <Route exact path="/">
-          <Home setCurrentUser={setCurrentUser} currentUser={currentUser} />
+          <Home
+            setCurrentUser={setCurrentUser}
+            currentUser={currentUser} />
         </Route>
         <Route exact path="/signup">
-          <Signup setCurrentUser={setCurrentUser} />
+          <Signup
+            setCurrentUser={setCurrentUser} />
         </Route>
       </Switch>
     </div>
@@ -85,26 +76,41 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Hi {currentUser.name}!</h1>
-      <NavBar />
+      <NavBar
+        currentUser={currentUser}
+        setCurrentUser={setCurrentUser}
+      />
       <Switch>
         <Route exact path="/">
-          <Home setCurrentUser={setCurrentUser} currentUser={currentUser} />
+          <Home
+            setCurrentUser={setCurrentUser}
+            currentUser={currentUser}
+            setCreditCards={setCreditCards}
+          />
         </Route>
-        <Route exact path="/profile">
-          <User setCurrentUser={setCurrentUser} userDetails={currentUser} />
+        <Route exact path="/creditcards">
+          <AllCards
+            error={error}
+            grabSelectedCard={grabSelectedCard}
+            creditCards={creditCards}
+            addToFavorites={addToFavorites} />
         </Route>
         <Route exact path="/savedcards">
           <SavedCardsContainer />
         </Route>
-        <Route exact path="/creditcards">
-          <AllCards 
-          grabSelectedCard={grabSelectedCard} 
-          creditCards={creditCards} addToFavorites={addToFavorites} />
-        </Route>
         <Route path="/creditcards/:id">
-          <SingleCard currentUser={currentUser} selectedCard={selectedCard} />
+          <SingleCard
+            currentUser={currentUser}
+          />
         </Route>
+        <Route exact path="/profile">
+          <User
+            setCurrentUser={setCurrentUser}
+            userDetails={currentUser} />
+        </Route>
+        <Route exact path="/editprofile">
+          <EditProfile setCurrentUser={setCurrentUser} />
+        </Route>?
       </Switch>
     </div>
   );

@@ -18,6 +18,7 @@ function Login({ setCurrentUser }) {
             [key]: e.target.value
         })
     }
+
     const configObj = {
         method: 'POST',
         headers: {
@@ -37,15 +38,13 @@ function Login({ setCurrentUser }) {
                 } else {
                     // Console.log errors
                     r.json().then(err => {
-                        console.log(err.error)
                         setError(err.error)
                     })
                 }
             })
     }
-    console.log(error)
-    const renderError = <Error key={error}>{error}</Error>
 
+    const renderError = <Error key={error}>{error}</Error>
 
     return (
         <body >
