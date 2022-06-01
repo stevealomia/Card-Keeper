@@ -4,8 +4,6 @@ import Error from '../styles/Error'
 
 
 function AllCards({ creditCards, grabSelectedCard, addToFavorites, error }) {
-    console.log(creditCards)
-    console.log(error)
 
     const renderCards = creditCards.map((card) => <CardPreview key={card.id} addToFavorites={addToFavorites} grabSelectedCard={grabSelectedCard} card={card} />)
 

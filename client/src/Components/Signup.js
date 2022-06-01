@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import {useHistory} from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import Error from "../styles/Error"
 
 function Signup({ setCurrentUser }) {
@@ -11,7 +11,7 @@ function Signup({ setCurrentUser }) {
         password: '',
         credit_score: 0
     })
-    
+
     const history = useHistory()
     const { name, age, email, password, credit_score } = formData
 
@@ -24,20 +24,21 @@ function Signup({ setCurrentUser }) {
         })
     }
 
-    const configObj = {
-        method: 'POST',
-        headers: {
-            "Content-Type": "application/json",
-            "Accept": "application/json"
-        }, body: JSON.stringify(formData)
-    }
-
     const goBack = () => {
         history.push("/")
     }
 
     const createUser = (e) => {
         e.preventDefault()
+
+        const configObj = {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            }, body: JSON.stringify(formData)
+        }
+    
         fetch("/signup", configObj)
             .then(r => {
                 if (r.ok) {
@@ -46,11 +47,9 @@ function Signup({ setCurrentUser }) {
                         history.push("/")
                     })
                 } else {
-                    // Console.log errors
                     r.json().then(err => {
                         console.log(err.errors)
                         setErrors(err.errors)
-                       
                     })
                 }
             })
@@ -59,7 +58,6 @@ function Signup({ setCurrentUser }) {
     const renderErrors = errors.map(e => <Error key={e}>{e}</Error>)
 
     return (
-
         <div>
             <h1>Sign Up Below</h1>
             <form onSubmit={createUser}>

@@ -10,23 +10,21 @@ function Home({ setCurrentUser, currentUser, setCreditCards }) {
     fetch('/credit_cards')
       .then((r) => r.json())
       .then((cards) => {
-        console.log(cards)
         setCreditCards(cards)
       })
   }, [])
-
 
   const renderSignUpPage = () => {
     history.push("/signup")
   }
 
-
-
-  // Log User Out
-  const handleLogout = () => {
-    fetch("/logout", { method: "DELETE" })
-      .then(r => r.json())
-      .then(setCurrentUser())
+  const loginAsGuest = () => {
+    fetch('/guest')
+    .then((r) => r.json())
+    .then(data => {
+      setCurrentUser(data)
+      history.push("/")
+    } )
   }
 
   return (
@@ -41,11 +39,12 @@ function Home({ setCurrentUser, currentUser, setCreditCards }) {
 
           <h3>So glad you made it!  Let's get started...</h3>
           <p>  Click on the "Browse All Reward Cards" tab and use our favorites tool to add and compare rewards credit cards and find the right match based on benefits that matter most to you! </p>
-          <button onClick={handleLogout}>Logout</button>
         </div>
         :
         <div>
           <p>Log in below and let's rack up some rewards!</p>
+          <p>Just Browsing? </p>
+            <button onClick={loginAsGuest}>Sign in as guest! </button>
           <Login setCurrentUser={setCurrentUser} />
           Don't have an account? <button onClick={renderSignUpPage}>Click to Sign Up!</button>
         </div>}

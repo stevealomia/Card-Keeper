@@ -9,15 +9,10 @@ function CardPreview({ card, grabSelectedCard, addToFavorites }) {
         history.push(`/creditcards/${id}`, card)
     }
 
-
-
     return (
-        <div
-            onClick={() => showCardDetails(card.id, card)}
-        >
+        <div onClick={() => showCardDetails(card.id, card)}>
             <img src={card.img_url} alt={card.name} />
             <h2>{card.name}</h2>
-
             <h4>{card.description}</h4>
             <button onClick={(e) => addToFavorites(e, card)}>Add to my Wallet!</button>
         </div>
