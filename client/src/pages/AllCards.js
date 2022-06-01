@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react"
 import CardPreview from "../Components/CardPreview"
+import styles from '../styles/styles.js'
+// function AllCards({ creditCards, grabSelectedCard, addToFavorites }) {
+//     console.log(creditCards)
 import Error from '../styles/Error'
 
 
