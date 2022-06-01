@@ -1,9 +1,14 @@
 import React, { useState } from 'react'
+import { useLocation } from 'react-router-dom'
 import Error from "../styles/Error"
 
 
-function SingleCard({ currentUser, selectedCard }) {
+function SingleCard({ currentUser }) {
     const [error, setError] = useState()
+    let locate = useLocation()
+
+    const selectedCard = locate.state
+    console.log(locate.state)
 
     const addToFavorites = () => {
         const configObj = {
@@ -36,6 +41,7 @@ function SingleCard({ currentUser, selectedCard }) {
 
     return (
         <div key={name}>
+            {error ? renderError : null}
             <img src={img_url} alt={name} />
             <h1>{name}</h1>
             <h2>{description}</h2>
@@ -44,7 +50,6 @@ function SingleCard({ currentUser, selectedCard }) {
             <h4>APR: {apr}</h4>
             <h5>Annual Fee:  ${annual_fee} </h5>
             <button onClick={addToFavorites}>Add to my Wallet!</button>
-            {error ? renderError : null}
         </div>
     )
 }

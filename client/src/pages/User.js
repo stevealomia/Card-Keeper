@@ -24,9 +24,6 @@ function User({ userDetails, setCurrentUser }) {
     return (
         <>
             <div>
-                <h1>
-                    Welcome Back, {name}!
-                </h1>
                 <button onClick={toggleEditForm}>Click to Update your Profile!</button>
                 <h3>
                     Age: {age}

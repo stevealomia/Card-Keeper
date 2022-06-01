@@ -31,14 +31,16 @@ const StyledLink = styled(NavLink)`
   `
 
 
-function NavBar() {
+function NavBar({currentUser}) {
+
+  
   return (
     <NavStyle>
       <StyledLink
         exact to="/"
         activeStyle={active}
       >
-        Home
+        Welcome Home, {currentUser.name}!
       </StyledLink>
       <StyledLink
         exact to="/creditcards"
@@ -56,7 +58,7 @@ function NavBar() {
         exact to="/profile"
         activeStyle={active}
       >
-        Edit Account Details
+        Edit {currentUser.name}'s Account
       </StyledLink>
     </NavStyle>
   )
