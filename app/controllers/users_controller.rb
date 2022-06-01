@@ -2,6 +2,7 @@ class UsersController < ApplicationController
     skip_before_action :authorized, only: :create
 
 
+
     def show
         current_user = find_user
         render json: current_user, status: :ok

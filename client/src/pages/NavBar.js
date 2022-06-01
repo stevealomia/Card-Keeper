@@ -31,9 +31,14 @@ const StyledLink = styled(NavLink)`
   `
 
 
-function NavBar({currentUser}) {
+function NavBar({ currentUser, setCurrentUser }) {
 
-  
+  const handleLogout = () => {
+    fetch("/logout", { method: "DELETE" })
+      .then(r => r.json())
+      .then(setCurrentUser())
+  }
+
   return (
     <NavStyle>
       <StyledLink
@@ -59,6 +64,9 @@ function NavBar({currentUser}) {
         activeStyle={active}
       >
         Edit {currentUser.name}'s Account
+      </StyledLink>
+      <StyledLink exact to="/" onClick={handleLogout}>
+        Logout
       </StyledLink>
     </NavStyle>
   )

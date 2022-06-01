@@ -7,8 +7,7 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
   get "/auth", to: "users#show"
-
-  # delete "/favorite_cards/:id", to: "favorite_cards#destroy"
+  get "/guest", to: "sessions#guest"
 
   get '*path',
       to: 'fallback#index',

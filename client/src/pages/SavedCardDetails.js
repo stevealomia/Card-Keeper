@@ -1,10 +1,8 @@
 import React from 'react'
 
 function SavedCardDetails({card, handleRemove}) {
-    // console.log(card.credit_card)
 
     const {id, name, img_url, benefits, welcome_bonus} = card.credit_card
-    
 
     return (
         <div key={name}>

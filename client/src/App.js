@@ -32,8 +32,6 @@ function App() {
 
   const addToFavorites = (e, card) => {
     e.stopPropagation()
-    // setSelectedCard(card)
-    console.log(card)
     const configObj = {
       method: "POST",
       headers: {
@@ -49,14 +47,15 @@ function App() {
     fetch("/favorite_cards", configObj)
       .then(r => {
         if (r.ok) {
-          r.json().then((cards) => alert("Card has been added to your favorites!"))
+          r.json().then((cards) => {
+            setError(null)
+            alert("Card has been added to your favorites!")
+            })
         } else {
           r.json().then(err => setError(err.errors))
         }
       })
   }
-
-
 
   if (!currentUser) return (
     <div>
@@ -76,14 +75,17 @@ function App() {
 
   return (
     <div className="App">
-      <NavBar currentUser={currentUser}/>
+      <NavBar
+        currentUser={currentUser}
+        setCurrentUser={setCurrentUser}
+      />
       <Switch>
         <Route exact path="/">
           <Home
             setCurrentUser={setCurrentUser}
             currentUser={currentUser}
-            setCreditCards={setCreditCards} 
-            />
+            setCreditCards={setCreditCards}
+          />
         </Route>
         <Route exact path="/creditcards">
           <AllCards
@@ -98,8 +100,7 @@ function App() {
         <Route path="/creditcards/:id">
           <SingleCard
             currentUser={currentUser}
-            // selectedCard={selectedCard} 
-            />
+          />
         </Route>
         <Route exact path="/profile">
           <User
@@ -107,8 +108,8 @@ function App() {
             userDetails={currentUser} />
         </Route>
         <Route exact path="/editprofile">
-          <EditProfile setCurrentUser={setCurrentUser}/>
-          </Route>?
+          <EditProfile setCurrentUser={setCurrentUser} />
+        </Route>?
       </Switch>
     </div>
   );

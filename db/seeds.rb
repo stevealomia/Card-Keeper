@@ -60,6 +60,9 @@ CreditCard.create!(img_url: 'https://ecm.capitalone.com/WCM/card/products/savoro
     description: 'Travel around the world and get No Foreign transaction Fees on your favorite categories.', benefits: '3% cash back on dining, entertainment, popular streaming services & at grocery stores', annual_fee: 0, welcome_bonus: "200 cash bonus once you spend $500 on purchases within the first 3 months from account opening", apr: '12.24% to 23.24%')
 
     puts "Seeding Users"
+
+User.create!(name: "Guest", email: "guest@guest.com", password: "test", credit_score: 790, age: 35)
+
 User.create!(name: "test", email: "test@test.com", password: "test", credit_score: 500, age: 40)
 
 

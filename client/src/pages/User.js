@@ -14,15 +14,14 @@ function User({ userDetails, setCurrentUser }) {
             })
     }
 
-
-    const toggleEditForm = () => {
+    const redirectToEditForm = () => {
         history.push("/editprofile", userDetails)
     }
 
     return (
         <>
             <div>
-                <button onClick={toggleEditForm}>Click to Update your Profile!</button>
+                <button onClick={redirectToEditForm}>Click to Update your Profile!</button>
                 <h3>Name: {name}</h3>
                 <h3>Age: {age}</h3>
                 <h3>Credit Score: {credit_score}</h3>

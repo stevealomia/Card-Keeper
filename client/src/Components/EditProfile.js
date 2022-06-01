@@ -1,23 +1,22 @@
 import React, { useState } from "react"
-import {useLocation, useHistory} from "react-router-dom"
+import { useLocation, useHistory } from "react-router-dom"
 import Input from "../styles/Input"
 import Error from "../styles/Error"
 
 function EditProfile({ setCurrentUser }) {
   let locate = useLocation()
   const currentUser = locate.state
+
   const [errors, setErrors] = useState([])
   const [formData, setFormData] = useState({
     name: currentUser.name,
     age: currentUser.age,
     credit_score: currentUser.credit_score,
     email: currentUser.email
-  })  
-  
+  })
+
   const history = useHistory()
 
-
-  
   const handleInput = (e) => {
     console.log(e.target.name, " : ", e.target.value);
     const name = e.target.name
@@ -54,13 +53,11 @@ function EditProfile({ setCurrentUser }) {
       })
   }
 
-
   const renderErrors = errors.map(e => <Error key={e}>{e}</Error>)
-
 
   return (
     <>
-    {renderErrors}
+      {renderErrors}
       <form onSubmit={updateUser}>
         Name
         <Input
@@ -101,7 +98,6 @@ function EditProfile({ setCurrentUser }) {
         <Input type="submit" value="Update" />
       </form>
     </>
-
   )
 }
 
