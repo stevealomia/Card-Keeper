@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import {useHistory} from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import Error from "../styles/Error"
 
 function Signup({ setCurrentUser }) {
@@ -11,7 +11,7 @@ function Signup({ setCurrentUser }) {
         password: '',
         credit_score: 0
     })
-    
+
     const history = useHistory()
     const { name, age, email, password, credit_score } = formData
 
@@ -50,7 +50,7 @@ function Signup({ setCurrentUser }) {
                     r.json().then(err => {
                         console.log(err.errors)
                         setErrors(err.errors)
-                       
+
                     })
                 }
             })
