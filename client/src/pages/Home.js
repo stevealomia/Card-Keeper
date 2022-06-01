@@ -7,26 +7,11 @@ function Home({ setCurrentUser, currentUser, setCreditCards }) {
 
   const history = useHistory()
 
-  useEffect(() => {
-    fetch('/credit_cards')
-      .then((r) => r.json())
-      .then((cards) => {
-        setCreditCards(cards)
-      })
-  }, [])
 
   const renderSignUpPage = () => {
     history.push("/signup")
   }
 
-  const loginAsGuest = () => {
-    fetch('/guest')
-    .then((r) => r.json())
-    .then(data => {
-      setCurrentUser(data)
-      history.push("/")
-    } )
-  }
 
   return (
     <>
@@ -44,8 +29,6 @@ function Home({ setCurrentUser, currentUser, setCreditCards }) {
         :
         <div>
           <p>Log in below and let's rack up some rewards!</p>
-          <p>Just Browsing? </p>
-            <button onClick={loginAsGuest}>Sign in as guest! </button>
           <Login setCurrentUser={setCurrentUser} />
           Don't have an account? <button onClick={renderSignUpPage}>Click to Sign Up!</button>
         </div>}

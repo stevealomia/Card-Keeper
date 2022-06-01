@@ -2,6 +2,7 @@ import React from "react"
 import { useHistory } from "react-router-dom"
 
 function User({ userDetails, setCurrentUser }) {
+    // console.log(userDetails)
     const history = useHistory()
 
     const { id, name, age, email, credit_score } = userDetails

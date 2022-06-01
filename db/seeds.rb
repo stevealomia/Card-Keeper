@@ -61,9 +61,9 @@ CreditCard.create!(img_url: 'https://ecm.capitalone.com/WCM/card/products/savoro
 
     puts "Seeding Users"
 
-User.create!(name: "Guest", email: "guest@guest.com", password: "test", credit_score: 790, age: 35)
+User.create!(name: "Mark", email: "guest@guest.com", password: "test", credit_score: 790, age: 35)
 
-User.create!(name: "test", email: "test@test.com", password: "test", credit_score: 500, age: 40)
+User.create!(name: "Laney", email: "test@test.com", password: "test", credit_score: 500, age: 59)
 
 
 
