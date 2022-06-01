@@ -1,21 +1,18 @@
 import React, { useState } from "react"
-import {useLocation} from "react-router-dom"
+import { useLocation } from "react-router-dom"
 import CardPreview from "../Components/CardPreview"
 import Error from '../styles/Error'
 
 
 function AllCards({ creditCards, grabSelectedCard, addToFavorites, error }) {
+    // FIGURE OUT HOW TO RENDER CC UPON REFRESH
     // let locate = useLocation()
     // const creditCards = locate.state
     // console.log(locate.state)
-    console.log(creditCards)
     const [category, setCategory] = useState("All")
 
 
-        const filteredByCategory = category === "All" ? creditCards : creditCards.filter(card => card.category === category)
-    
-
-    console.log(filteredByCategory)
+    const filteredByCategory = category === "All" ? creditCards : creditCards.filter(card => card.category === category)
 
     const renderCards = filteredByCategory.map((card) => <CardPreview key={card.id} addToFavorites={addToFavorites} grabSelectedCard={grabSelectedCard} card={card} />)
 

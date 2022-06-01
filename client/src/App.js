@@ -24,6 +24,7 @@ function App() {
           res.json().then(user => setCurrentUser(user))
         }
       })
+
   }, [])
 
   const grabSelectedCard = (card) => {
