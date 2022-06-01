@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useHistory } from 'react-router-dom'
 import styled from "styled-components"
 
 const active = {
@@ -32,6 +32,11 @@ const StyledLink = styled(NavLink)`
 
 
 function NavBar({ currentUser, setCurrentUser }) {
+  const history = useHistory()
+
+  const handleSignInAlert = () => {
+    alert("You must be logged in to access this page! Redirecting to sign up now...")
+  }
 
   const handleLogout = () => {
     fetch("/logout", { method: "DELETE" })
@@ -40,35 +45,69 @@ function NavBar({ currentUser, setCurrentUser }) {
   }
 
   return (
-    <NavStyle>
-      <StyledLink
-        exact to="/"
-        activeStyle={active}
-      >
-        Welcome Home, {currentUser.name}!
-      </StyledLink>
-      <StyledLink
-        exact to="/creditcards"
-        activeStyle={active}
-      >
-        Browse All Reward Cards
-      </StyledLink>
-      <StyledLink
-        exact to="/savedcards"
-        activeStyle={active}
-      >
-        My Saved Cards
-      </StyledLink>
-      <StyledLink
-        exact to="/profile"
-        activeStyle={active}
-      >
-        Edit {currentUser.name}'s Account
-      </StyledLink>
-      <StyledLink exact to="/" onClick={handleLogout}>
-        Logout
-      </StyledLink>
-    </NavStyle>
+    currentUser ?
+      // NavBar for User that is logged in
+      (
+        <NavStyle>
+          <StyledLink
+            exact to="/"
+            activeStyle={active}
+          >
+            Welcome Home, {currentUser.name}!
+          </StyledLink>
+          <StyledLink
+            exact to="/creditcards"
+            activeStyle={active}
+          >
+            Browse All Reward Cards
+          </StyledLink>
+          <StyledLink
+            exact to="/savedcards"
+            activeStyle={active}
+          >
+            My Saved Cards
+          </StyledLink>
+          <StyledLink
+            exact to="/profile"
+            activeStyle={active}
+          >
+            Edit {currentUser.name}'s Account
+          </StyledLink>
+          <StyledLink exact to="/" onClick={handleLogout}>
+            Logout
+          </StyledLink>
+        </NavStyle>
+      ) :
+      (
+        <NavStyle>
+          <StyledLink
+            exact to="/"
+            activeStyle={active}
+          >
+            Welcome, Guest!
+          </StyledLink>
+          <StyledLink
+            exact to="/creditcards"
+            activeStyle={active}
+          >
+            Browse All Reward Cards
+          </StyledLink>
+          <StyledLink
+            onClick={handleSignInAlert}
+            exact to="/signup"
+          >
+            My Saved Cards
+          </StyledLink>
+          <StyledLink
+            onClick={handleSignInAlert}
+            exact to="/signup"
+          >
+            Edit Account Details
+          </StyledLink>
+
+        </NavStyle>
+      )
+
   )
 }
 

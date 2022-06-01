@@ -1,5 +1,4 @@
-import React, { useState } from "react"
-import { useLocation } from "react-router-dom"
+import React, { useState, useEffect } from "react"
 import CardPreview from "../Components/CardPreview"
 import styles from '../styles/styles.js'
 // function AllCards({ creditCards, grabSelectedCard, addToFavorites }) {
@@ -7,13 +6,10 @@ import styles from '../styles/styles.js'
 import Error from '../styles/Error'
 
 
-function AllCards({ creditCards, grabSelectedCard, addToFavorites, error }) {
+function AllCards({ setCreditCards, creditCards, grabSelectedCard, addToFavorites, error }) {
     // FIGURE OUT HOW TO RENDER CC UPON REFRESH
-    // let locate = useLocation()
-    // const creditCards = locate.state
-    // console.log(locate.state)
+    console.log(creditCards)
     const [category, setCategory] = useState("All")
-
 
     const filteredByCategory = category === "All" ? creditCards : creditCards.filter(card => card.category === category)
 

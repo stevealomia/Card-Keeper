@@ -1,11 +1,6 @@
 class SessionsController < ApplicationController
     skip_before_action :authorized, only: [:create, :guest]
 
-    def guest
-            user = User.find_by(id: User.first.id)
-            render json: user, status: :ok
-    end
-
     def create 
         # Create Login with session Id here
         user = User.find_by(email: params[:email])

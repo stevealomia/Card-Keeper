@@ -5,6 +5,7 @@ import Error from "../styles/Error"
 
 function SingleCard({ currentUser }) {
     let locate = useLocation()
+    console.log(locate.state)
     const selectedCard = locate.state
     
     const [error, setError] = useState()
@@ -15,27 +16,38 @@ function SingleCard({ currentUser }) {
         history.push("/creditcards")
     }
 
+
+
+  
     const addToFavorites = () => {
-        const configObj = {
-            method: "POST",
-            headers: {
+        if(currentUser){
+            const configObj = {
+              method: "POST",
+              headers: {
                 "Content-Type": "application/json",
                 "Accept": "application/json"
-            },
-            body: JSON.stringify({
+              },
+              body: JSON.stringify({
                 user_id: currentUser.id,
                 credit_card_id: selectedCard.id
-            })
-        }
-
-        fetch("/favorite_cards", configObj)
-            .then(r => {
+              })
+            }
+        
+            fetch("/favorite_cards", configObj)
+              .then(r => {
                 if (r.ok) {
-                    r.json().then((cards) => alert("Card has been added to your favorites!"))
+                  r.json().then((cards) => {
+                    setError(null)
+                    alert("Card has been added to your favorites!")
+                  })
                 } else {
-                    r.json().then(err => setError(err.errors))
+                  r.json().then(err => setError(err.errors))
                 }
-            })
+              })
+          }else{
+            alert("You need an Account to add this card to your Wallet!  Redirecting to Sign Up Page...")
+            history.push("/signup")
+          }
     }
 
     const { img_url, name, description, benefits, apr, annual_fee, welcome_bonus } = selectedCard
