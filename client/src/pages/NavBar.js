@@ -41,7 +41,7 @@ function NavBar() {
         Home
       </StyledLink>
       <StyledLink
-        exact to="/allcards"
+        exact to="/creditcards"
         activeStyle={active}
       >
         Browse All Reward Cards

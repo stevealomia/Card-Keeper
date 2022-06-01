@@ -1,7 +1,7 @@
 class User < ApplicationRecord
     has_secure_password
 
-    has_many :favorite_cards
+    has_many :favorite_cards, dependent: :destroy
     has_many :credit_cards, through: :favorite_cards
     
     validates :name, :email, presence: true

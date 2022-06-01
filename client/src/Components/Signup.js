@@ -37,14 +37,13 @@ function Signup({ setCurrentUser }) {
             .then(r => {
                 if (r.ok) {
                     r.json().then(data => {
-                        console.log(data)
                         setCurrentUser(data)
                     })
                 } else {
                     // Console.log errors
-                    r.json().then(e => {
-                        console.log(e.errors)
-                        setErrors(e.errors)
+                    r.json().then(err => {
+                        console.log(err.errors)
+                        setErrors(err.errors)
                     })
                 }
             })
