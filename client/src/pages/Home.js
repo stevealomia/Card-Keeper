@@ -1,13 +1,8 @@
 import React, { useEffect } from 'react'
 import { useHistory } from "react-router-dom"
 import Login from '../Components/Login'
-<<<<<<< HEAD
 import styles from './../styles/styles.js'
-=======
-import logo from "../styles/logo.png"
-
 function Home({ setCurrentUser, currentUser, setCreditCards }) {
->>>>>>> 4ea98da806d4361bdd738eb2aaf5871d7bddb1c3
 
 const history = useHistory()
 
@@ -63,5 +58,5 @@ return (
 
   </>
 )
-
+    }
 export default Home
