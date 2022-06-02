@@ -1,9 +1,9 @@
 import React from 'react'
-import { NavLink, useHistory } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import styled from "styled-components"
 
 const active = {
-  // background: "0E3B43",
+  opacity: 1,
   color: "white",
   fontWeight: "bold",
   border: "white 6px solid"
@@ -20,6 +20,7 @@ const NavStyle = styled.div`
 `
 
 const StyledLink = styled(NavLink)`
+      opacity: .66;
       width: 100%;
       height: 40px;
       background: transparent;
@@ -30,7 +31,6 @@ const StyledLink = styled(NavLink)`
 
 
 function NavBar({ currentUser, setCurrentUser }) {
-  const history = useHistory()
 
   const handleSignInAlert = () => {
     alert("You must be logged in to access this page! Redirecting to sign up now...")

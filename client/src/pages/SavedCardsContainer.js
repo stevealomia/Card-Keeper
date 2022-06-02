@@ -25,7 +25,7 @@ function SavedCardsContainer() {
             })
     }
 
-    const renderFavorites = filteredByCategory.length > 0 ? filteredByCategory.map(card => <SavedCardDetails key={card.id} handleRemove={removeFromFavorites} card={card} />) : <h3>oh no, you haven't saved any cards yet! fix it: save cards + get money honey</h3>
+    const renderFavorites = filteredByCategory.length > 0 ? filteredByCategory.map(card => <SavedCardDetails key={card.id} handleRemove={removeFromFavorites} card={card} />) : <h3>oh no, you haven't saved any {category} cards yet! fix it: save cards + get money honey</h3>
 
     return (
         <div style={styles.savedWallet}>
