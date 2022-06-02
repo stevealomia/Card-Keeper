@@ -17,11 +17,8 @@ const Wrapper = styled.div`
   border-radius: 6px;
   display: flex;
   flex-flow: row;
-  padding: 8px;
   align-items: flex-start;
   justify-content: space-around;
-  gap: 8px;
-  margin: 8px 0;
 `;
 
 const Alert = styled.span`

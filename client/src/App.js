@@ -95,7 +95,7 @@ function App() {
 
 
   return (
-    <div className="App">
+    <div>
       <NavBar
         currentUser={currentUser}
         setCurrentUser={setCurrentUser}
