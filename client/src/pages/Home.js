@@ -32,7 +32,7 @@ function Home({ setCurrentUser, currentUser, setCreditCards }) {
           :
           <>
             <Login setCurrentUser={setCurrentUser} />
-            <div style={styles.stacks}> ready to make it rain? <button style={styles.submit} onClick={renderSignUpPage}>go here</button>
+            <div style={styles.stacks}> ready to make it rain? <button style={styles.submit} onClick={renderSignUpPage}>get started here</button>
             </div>
           </>
         }
