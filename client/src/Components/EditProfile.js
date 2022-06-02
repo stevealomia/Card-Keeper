@@ -58,7 +58,8 @@ function EditProfile({ setCurrentUser }) {
 
   return (
     <>
-    <div style={{paddingTop: '100px'}}>
+    <div style={styles.editProfile}>
+      <h1>spill your secrets, we never kiss and tell.</h1>
       {renderErrors}
       <form onSubmit={updateUser}>
         Name

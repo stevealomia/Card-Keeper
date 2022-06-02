@@ -25,7 +25,6 @@ const styles = {
     },
     "keeper": {
         color: 'white',
-        fontFamily: 'system-ui',
         fontSize: 'xxx-large',
         position: 'absolute',
         bottom: '50%',
@@ -34,7 +33,6 @@ const styles = {
     "honey": {
         color: 'white',
         fontSize: 'x-large',
-        fontFamily: 'system-ui',
         position: 'absolute',
         bottom: '45%',
         left: '5%'
@@ -71,17 +69,17 @@ const styles = {
     "singleCard": {
         backgroundColor: '#8BFBBB',
         height: '100%',
-        paddingTop: '100px'
+        paddingTop: '100px',
+        textAlign: 'center'
     },
     "editProfile": {
-        backgroundColor: '#FBC37B',
+        backgroundColor: '#1CDD6D',
         height: '100%',
         paddingTop: '100px',
         textAlign: 'center'
     },
     "savedWallet": {
         backgroundColor: '#A07BFB',
-        height: '100%',
         paddingTop: '100px',
         textAlign: 'center'
     },
@@ -89,6 +87,12 @@ const styles = {
         backgroundColor: '#9EFCEC',
         height: '100%',
         paddingTop: '100px',
+        textAlign: 'center'
+    },
+    "cardGrid": {
+        display: 'grid',
+        gridTemplateColumns: '400px 400px 400px',
+        backgroundColor: '#8ED9FB',
         textAlign: 'center'
     }
 }

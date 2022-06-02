@@ -19,8 +19,8 @@ function AllCards({ setCreditCards, creditCards, grabSelectedCard, addToFavorite
         <>
             <div style={styles.allCards}>
                 <h1 style={{ textAlign: 'center', fontSize: 'xxx-large' }}>we've got what you need</h1>
-                <form>
-                    <select onChange={e => setCompany(e.target.value)} value={company}>
+                <form style={{marginLeft: 'auto', marginRight: 'auto', width: '130px'}}>
+                    <select  onChange={e => setCompany(e.target.value)} value={company}>
                         <option value="All">See Our Goods</option>
                         <option value="Amazon">Amazon</option>
                         <option value="American Express">American Express</option>
@@ -32,7 +32,7 @@ function AllCards({ setCreditCards, creditCards, grabSelectedCard, addToFavorite
                     </select>
                 </form>
                 {error ? renderError : null}
-                <div style={{ display: 'flex', overflowY: 'hidden', overflowX: 'auto' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: '400px 400px 400px', backgroundColor: '#8ED9FB', textAlign: 'center' }}>
                     {renderCards}
                 </div>
             </div>

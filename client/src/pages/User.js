@@ -23,12 +23,13 @@ function User({ currentUser, setCurrentUser }) {
     return (
         <>
             <div style={styles.editProfile}>
-                <button onClick={redirectToEditForm}>update your info</button>
-                <h3>name: {currentUser && currentUser.name}</h3>
-                <h3>age: {currentUser && currentUser.age}</h3>
-                <h3>credit score: {currentUser && currentUser.credit_score}</h3>
-                <h3>email: {currentUser && currentUser.email}</h3>
-                <button onClick={deleteUser}>delete my account :(</button>
+                <h1 style={{fontSize: 'xxx-large'}}>your deets</h1>
+                {/* <button onClick={redirectToEditForm}>update your info</button> */}
+                <h3>Name: {currentUser && currentUser.name}</h3>
+                <h3>Age: {currentUser && currentUser.age}</h3>
+                <h3>Credit Score: {currentUser && currentUser.credit_score}</h3>
+                <h3>Email: {currentUser && currentUser.email}</h3>
+                <button onClick={redirectToEditForm}>update your info</button><button onClick={deleteUser}>delete my account :(</button>
             </div>
         </>
     )
