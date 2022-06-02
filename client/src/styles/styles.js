@@ -73,7 +73,7 @@ const styles = {
         textAlign: 'center'
     },
     "editProfile": {
-        backgroundColor: '#1CDD6D',
+        backgroundColor: '#8ADDAD',
         height: '100%',
         paddingTop: '100px',
         textAlign: 'center'

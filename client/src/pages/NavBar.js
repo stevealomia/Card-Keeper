@@ -72,8 +72,8 @@ function NavBar({ currentUser, setCurrentUser }) {
           >
             change {currentUser.name}'s deets
           </StyledLink>
-          <StyledLink style={{fontSize: '15px'}} exact to="/" onClick={handleLogout}>
-            sad to see you go, but love to watch you leave ;)
+          <StyledLink style={{fontSize: '18px'}} exact to="/" onClick={handleLogout}>
+            sad to see you go, love to watch you leave ;)
           </StyledLink>
         </NavStyle>
       ) :
