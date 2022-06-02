@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-    skip_before_action :authorized, only: [:create, :guest]
+    skip_before_action :authorized, only: :create
 
     def create 
         # Create Login with session Id here

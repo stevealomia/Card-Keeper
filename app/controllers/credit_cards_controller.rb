@@ -1,5 +1,4 @@
 class CreditCardsController < ApplicationController
-    skip_before_action :authorized
 
     def index
         render json: CreditCard.all, status: :ok
