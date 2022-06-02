@@ -3,11 +3,11 @@ class UsersController < ApplicationController
 
     def show
         current_user = find_user
-        if current_user 
+        # if current_user 
             render json: current_user, status: :ok
-        else
-            render json: {error: "User not found"}, status: :not_found
-        end
+        # else
+        #     render json: {error: "User not found"}, status: :not_found
+        # end
     end
 
     def create 

@@ -50,7 +50,7 @@ function SingleCard({ currentUser }) {
           }
     }
 
-    const { img_url, name, description, benefits, apr, annual_fee, welcome_bonus } = selectedCard
+    const { img_url, name, description, benefits, apr, annual_fee, welcome_bonus, category } = selectedCard
 
     const renderError = <Error key={error}>{error}</Error>
 
@@ -60,6 +60,7 @@ function SingleCard({ currentUser }) {
             <div key={name}>
                 {error ? renderError : null}
                 <img src={img_url} alt={name} />
+                <h2>This is a {category} Rewards Card</h2>
                 <h1>{name}</h1>
                 <h2>{description}</h2>
                 <h3>Benefits: {benefits}</h3>

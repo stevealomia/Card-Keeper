@@ -11,6 +11,7 @@ function CardPreview({ card, grabSelectedCard, addToFavorites }) {
 
     return (
         <div onClick={() => showCardDetails(card.id, card)}>
+            <h2>{card.category} Rewards!</h2>
             <img src={card.img_url} alt={card.name} />
             <h2>{card.name}</h2>
             <h4>{card.description}</h4>

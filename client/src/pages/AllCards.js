@@ -9,27 +9,33 @@ import Error from '../styles/Error'
 function AllCards({ setCreditCards, creditCards, grabSelectedCard, addToFavorites, error }) {
     // FIGURE OUT HOW TO RENDER CC UPON REFRESH
     console.log(creditCards)
-    const [category, setCategory] = useState("All")
+    const [company, setCompany] = useState("All")
 
-    const filteredByCategory = category === "All" ? creditCards : creditCards.filter(card => card.category === category)
+    const filteredByCompany = company === "All" ? creditCards : creditCards.filter(card => card.company === company)
 
-    const renderCards = filteredByCategory.map((card) => <CardPreview key={card.id} addToFavorites={addToFavorites} grabSelectedCard={grabSelectedCard} card={card} />)
+    // const renderCards = filteredByCategory.map((card) => <CardPreview key={card.id} addToFavorites={addToFavorites} grabSelectedCard={grabSelectedCard} card={card} />)
+
+    const renderCards = filteredByCompany.map((card) => <CardPreview key={card.id} addToFavorites={addToFavorites} grabSelectedCard={grabSelectedCard} card={card} />)
 
     const renderError = <Error key={error}>{error}</Error>
 
     return (
         <>
+            <h3> Click on a Card to Learn More!</h3>
+            <p> Click the "Filters" to browse by company.</p>
             <form>
-                <select onChange={e => setCategory(e.target.value)} value={category}>
+                {/* <select onChange={e => setCategory(e.target.value)} value={category}> */}
+                <select onChange={e => setCompany(e.target.value)} value={company}>
                     <option value="All">All</option>
-                    <option value="Travel">Travel</option>
-                    <option value="Dining">Dining</option>
-                    <option value="Shopping">Shopping</option>
-                    <option value="Cash Back">Cash Back</option>
+                    <option value="Amazon">Amazon</option>
+                    <option value="American Express">American Express</option>
+                    <option value="Capital One">Capital One</option>
+                    <option value="Chase">Chase</option>
+                    <option value="Discover">Discover</option>
+                    <option value="Hyatt">Hyatt</option>
+                    <option value="United">United</option>
                 </select>
             </form>
-            <h3> Click on a Card to Learn More!</h3>
-            <p> Click the "Filters" to select your preferred rewards type. You can also select specific card issuers to browse.</p>
             {error ? renderError : null}
             <div style={{ display: 'flex', overflowY: 'hidden', overflowX: 'auto' }}>
                 {renderCards}
