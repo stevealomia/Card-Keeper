@@ -1,8 +1,8 @@
 const styles = {
     "main": {
         position: 'absolute',
-        top: '6%',
-        right: '5%'
+        bottom: '20%',
+        left: '5%'
     },
     "login": {
         color: 'white',
@@ -42,7 +42,7 @@ const styles = {
     "stacks": {
         color: 'white',
         fontFamily: 'system-ui',
-        fontSize: 'x-large',
+        fontSize: 'large',
         position: 'absolute',
         bottom: '30%',
         left: '5%'
@@ -54,6 +54,15 @@ const styles = {
         position: 'absolute',
         top: '10%',
         right: '5%'
+    },
+    "home": {
+        height: '100%',
+        width: '100%',
+        position: 'absolute',
+        margin: '0px',
+        backgroundSize: '100%',
+        backgroundRepeat: 'no-repeat',
+        backgroundImage: 'url(https://st2.depositphotos.com/12982378/i/600/depositphotos_441268404-stock-photo-cropped-view-woman-holding-credit.jpg)',
     }
 }
 
