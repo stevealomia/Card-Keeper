@@ -28,22 +28,10 @@ function App() {
         if (res.ok) {
           res.json().then(user => {
             setCurrentUser(user)
-            // window.localStorage.setItem("logged-in-user", JSON.stringify(currentUser))
           })
         }
       })
   }, [])
-
-
-
-  // useEffect(()=> {
-  //   fetch("/users")
-  //   .then(res => {
-  //     if (res.ok) {
-  //       res.json().then(user => setCurrentUser(user))
-  //     }
-  //   })
-  // })
 
   useEffect(() => {
     fetch('/credit_cards')

@@ -4,24 +4,9 @@ import styles from "./../styles/styles.js"
 
 
 function User({ currentUser, setCurrentUser }) {
-
-    // const userDetails = window.localStorage.getItem("logged-in-user")
-    // setCurrentUser(JSON.parse(userDetails))
-
-    // console.log(userDetails)
     console.log(currentUser)
 
-    // useEffect (()=> {
-    //     const userDetails = window.localStorage.getItem("logged-in-user")
-    //     setCurrentUser(JSON.parse(userDetails))
-    //     fetch("/auth")
-    //     .then(r => r.json())
-    //     .then(user => setCurrentUser(user))
-    // }, [])
-    // console.log(userDetails)
     const history = useHistory()
-
-    // const { id, name, age, email, credit_score } = currentUser
 
     const deleteUser = () => {
         fetch(`/users/${currentUser.id}`, { method: 'DELETE' })
