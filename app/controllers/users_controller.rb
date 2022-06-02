@@ -1,11 +1,13 @@
 class UsersController < ApplicationController
     skip_before_action :authorized, only: :create
 
-
-
     def show
         current_user = find_user
-        render json: current_user, status: :ok
+        if current_user 
+            render json: current_user, status: :ok
+        else
+            render json: {error: "User not found"}, status: :not_found
+        end
     end
 
     def create 
@@ -26,7 +28,6 @@ class UsersController < ApplicationController
         current_user.destroy
         head :no_content
     end
-
 
     # Login and Logout needs to go in Sessions controller
     #secret page that you can only see if you're logged in

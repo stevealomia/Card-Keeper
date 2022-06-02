@@ -32,8 +32,8 @@ function Login({ setCurrentUser }) {
         fetch("/login", configObj)
             .then(r => {
                 if (r.ok) {
-                    r.json().then(data => {
-                        setCurrentUser(data)
+                    r.json().then(user => {
+                        setCurrentUser(user)
                     })
                 } else {
                     // Console.log errors
@@ -47,9 +47,7 @@ function Login({ setCurrentUser }) {
     const renderError = <Error key={error}>{error}</Error>
 
     return (
-        <body >
             <div style={styles.main}>
-                
                 <div style={styles.email}>
                     <form onSubmit={loginUser}>
                         email:
@@ -61,8 +59,6 @@ function Login({ setCurrentUser }) {
                     </form>
                 </div>
             </div>
-
-        </body>
     )
 }
 
