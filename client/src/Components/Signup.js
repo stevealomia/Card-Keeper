@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import Error from "../styles/Error"
+import styles from '../styles/styles.js'
 
 function Signup({ setCurrentUser }) {
     const [errors, setErrors] = useState([])
@@ -58,8 +59,8 @@ function Signup({ setCurrentUser }) {
     const renderErrors = errors.map(e => <Error key={e}>{e}</Error>)
 
     return (
-        <div>
-            <h1>Sign Up Below</h1>
+        <div style={styles.signUp}>
+            <h1>{`we like you too <3`}</h1>
             <form onSubmit={createUser}>
                 Name:
                 <input onChange={handleChange} value={name} name="name" type="text" />

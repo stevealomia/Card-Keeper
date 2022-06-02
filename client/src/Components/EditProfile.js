@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import { useLocation, useHistory } from "react-router-dom"
 import Input from "../styles/Input"
 import Error from "../styles/Error"
+import styles from "./../styles/styles.js"
 
 function EditProfile({ setCurrentUser }) {
   let locate = useLocation()
@@ -57,6 +58,7 @@ function EditProfile({ setCurrentUser }) {
 
   return (
     <>
+    <div style={{paddingTop: '100px'}}>
       {renderErrors}
       <form onSubmit={updateUser}>
         Name
@@ -97,6 +99,7 @@ function EditProfile({ setCurrentUser }) {
         <br />
         <Input type="submit" value="Update" />
       </form>
+      </div>
     </>
   )
 }

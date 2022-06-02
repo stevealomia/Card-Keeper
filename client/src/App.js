@@ -95,7 +95,7 @@ function App() {
 
 
   return (
-    <div>
+    <div style={{height: "100%"}}>
       <NavBar
         currentUser={currentUser}
         setCurrentUser={setCurrentUser}

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useLocation, useHistory } from 'react-router-dom'
 import Error from "../styles/Error"
+import styles from "./../styles/styles.js"
 
 
 function SingleCard({ currentUser }) {
@@ -55,7 +56,7 @@ function SingleCard({ currentUser }) {
     const renderError = <Error key={error}>{error}</Error>
 
     return (
-        <div>
+        <div style={styles.singleCard}>
             <button onClick={goBack}>Go Back</button>
             <div key={name}>
                 {error ? renderError : null}

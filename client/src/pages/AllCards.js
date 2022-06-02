@@ -21,12 +21,14 @@ function AllCards({ setCreditCards, creditCards, grabSelectedCard, addToFavorite
 
     return (
         <>
-            <h3> Click on a Card to Learn More!</h3>
-            <p> Click the "Filters" to browse by company.</p>
+        <div style={styles.allCards}>
+            {/* <h3> Click on a Card to Learn More!</h3> */}
+            {/* <p style={{margin: '0px'}}> Click the "Filters" to browse by company.</p> */}
+            <h1 style={{textAlign: 'center', fontSize: 'xxx-large'}}>we've got what you need</h1>
             <form>
                 {/* <select onChange={e => setCategory(e.target.value)} value={category}> */}
                 <select onChange={e => setCompany(e.target.value)} value={company}>
-                    <option value="All">All</option>
+                    <option value="All">See Our Goods</option>
                     <option value="Amazon">Amazon</option>
                     <option value="American Express">American Express</option>
                     <option value="Capital One">Capital One</option>
@@ -40,6 +42,7 @@ function AllCards({ setCreditCards, creditCards, grabSelectedCard, addToFavorite
             <div style={{ display: 'flex', overflowY: 'hidden', overflowX: 'auto' }}>
                 {renderCards}
 
+            </div>
             </div>
         </>
     )

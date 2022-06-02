@@ -58,11 +58,38 @@ const styles = {
     "home": {
         height: '100%',
         width: '100%',
-        position: 'absolute',
         margin: '0px',
         backgroundSize: '100%',
         backgroundRepeat: 'no-repeat',
         backgroundImage: 'url(https://st2.depositphotos.com/12982378/i/600/depositphotos_441268404-stock-photo-cropped-view-woman-holding-credit.jpg)',
+    },
+    "allCards": {
+        backgroundColor: '#8ED9FB',
+        height: '100%',
+        paddingTop: '100px'
+    },
+    "singleCard": {
+        backgroundColor: '#8BFBBB',
+        height: '100%',
+        paddingTop: '100px'
+    },
+    "editProfile": {
+        backgroundColor: '#FBC37B',
+        height: '100%',
+        paddingTop: '100px',
+        textAlign: 'center'
+    },
+    "savedWallet": {
+        backgroundColor: '#A07BFB',
+        height: '100%',
+        paddingTop: '100px',
+        textAlign: 'center'
+    },
+    "signUp": {
+        backgroundColor: '#9EFCEC',
+        height: '100%',
+        paddingTop: '100px',
+        textAlign: 'center'
     }
 }
 

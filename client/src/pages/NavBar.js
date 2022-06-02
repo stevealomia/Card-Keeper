@@ -4,14 +4,15 @@ import styled from "styled-components"
 
 const active = {
   // background: "0E3B43",
-  color: "#312509",
+  color: "white",
   fontWeight: "bold",
-  border: "#312509 6px solid"
+  border: "white 6px solid"
 }
 
 const NavStyle = styled.div`
     display: flex;
-    /* width: 35vh; */
+    width: 100%;
+    position: fixed;
     text-align: center;
     font-size: clamp(1.5rem, 3vw + 1rem, .5rem);
     align-items: center;
@@ -20,8 +21,9 @@ const NavStyle = styled.div`
 
 const StyledLink = styled(NavLink)`
       width: 100%;
-      background: #357266;
-      border: #312509 6px solid;
+      height: 40px;
+      background: transparent;
+      border: white 6px solid;
       text-decoration: none;
       color: white;
   `
@@ -50,28 +52,28 @@ function NavBar({ currentUser, setCurrentUser }) {
             exact to="/"
             activeStyle={active}
           >
-            Welcome Home, {currentUser.name}!
+            {currentUser.name} is a hot thing
           </StyledLink>
           <StyledLink
             exact to="/creditcards"
             activeStyle={active}
           >
-            Browse All Reward Cards
+            get stacks
           </StyledLink>
           <StyledLink
             exact to="/savedcards"
             activeStyle={active}
           >
-            My Saved Cards
+            your deck
           </StyledLink>
           <StyledLink
             exact to="/profile"
             activeStyle={active}
           >
-            Edit {currentUser.name}'s Account
+            change {currentUser.name}'s deets
           </StyledLink>
-          <StyledLink exact to="/" onClick={handleLogout}>
-            Logout
+          <StyledLink style={{fontSize: '15px'}} exact to="/" onClick={handleLogout}>
+            sad to see you go, but love to watch you leave ;)
           </StyledLink>
         </NavStyle>
       ) :
@@ -81,25 +83,25 @@ function NavBar({ currentUser, setCurrentUser }) {
             exact to="/"
             activeStyle={active}
           >
-            Welcome, Guest!
+            hey, hot thing
           </StyledLink>
           <StyledLink
             exact to="/creditcards"
             activeStyle={active}
           >
-            Browse All Reward Cards
+            get stacks
           </StyledLink>
           <StyledLink
             onClick={handleSignInAlert}
             exact to="/signup"
           >
-            My Saved Cards
+            my deck
           </StyledLink>
           <StyledLink
             onClick={handleSignInAlert}
             exact to="/signup"
           >
-            Edit Account Details
+            my deets
           </StyledLink>
 
         </NavStyle>
