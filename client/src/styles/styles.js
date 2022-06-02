@@ -64,6 +64,7 @@ const styles = {
     "allCards": {
         backgroundColor: '#8ED9FB',
         height: '100%',
+        width: "fit-content",
         paddingTop: '100px'
     },
     "singleCard": {
