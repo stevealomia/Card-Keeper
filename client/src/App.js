@@ -26,7 +26,10 @@ function App() {
     fetch("/auth")
       .then(res => {
         if (res.ok) {
-          res.json().then(user => setCurrentUser(user))
+          res.json().then(user => {
+            setCurrentUser(user)
+            // window.localStorage.setItem("logged-in-user", JSON.stringify(currentUser))
+          })
         }
       })
   }, [])
@@ -124,7 +127,8 @@ function App() {
         <Route exact path="/profile">
           <User
             setCurrentUser={setCurrentUser}
-            userDetails={currentUser} />
+            currentUser={currentUser} 
+            />
         </Route>
         <Route exact path="/editprofile">
           <EditProfile setCurrentUser={setCurrentUser} />

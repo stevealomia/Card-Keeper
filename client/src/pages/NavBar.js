@@ -42,6 +42,7 @@ function NavBar({ currentUser, setCurrentUser }) {
     fetch("/logout", { method: "DELETE" })
       .then(r => r.json())
       .then(setCurrentUser())
+      // null? instead of empty?
   }
 
   return (
