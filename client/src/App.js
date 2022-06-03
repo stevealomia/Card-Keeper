@@ -27,6 +27,7 @@ function App() {
       .then(res => {
         if (res.ok) {
           res.json().then(user => {
+            console.log(user)
             setCurrentUser(user)
           })
         }
@@ -48,7 +49,7 @@ function App() {
   const addToFavorites = (e, card) => {
     e.stopPropagation()
     console.log(currentUser)
-    if(currentUser){
+    if (currentUser) {
       const configObj = {
         method: "POST",
         headers: {
@@ -60,7 +61,7 @@ function App() {
           credit_card_id: card.id
         })
       }
-  
+
       fetch("/favorite_cards", configObj)
         .then(r => {
           if (r.ok) {
@@ -72,7 +73,7 @@ function App() {
             r.json().then(err => setError(err.errors))
           }
         })
-    }else{
+    } else {
       alert("You need an Account to add this card to your Wallet!  Redirecting to Sign Up Page...")
       history.push("/signup")
     }
@@ -83,7 +84,7 @@ function App() {
 
 
   return (
-    <div style={{height: "100%"}}>
+    <div style={{ height: "100%" }}>
       <NavBar
         currentUser={currentUser}
         setCurrentUser={setCurrentUser}
@@ -115,8 +116,8 @@ function App() {
         <Route exact path="/profile">
           <User
             setCurrentUser={setCurrentUser}
-            currentUser={currentUser} 
-            />
+            currentUser={currentUser}
+          />
         </Route>
         <Route exact path="/editprofile">
           <EditProfile setCurrentUser={setCurrentUser} />

@@ -43,9 +43,9 @@ function Signup({ setCurrentUser }) {
         fetch("/signup", configObj)
             .then(r => {
                 if (r.ok) {
-                    r.json().then(data => {
-                        setCurrentUser(data)
-                        history.push("/")
+                    r.json().then(user => {
+                        setCurrentUser(user)
+                        history.push("/", user)
                     })
                 } else {
                     r.json().then(err => {
