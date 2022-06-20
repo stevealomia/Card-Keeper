@@ -1,6 +1,5 @@
 import React, {useEffect} from "react"
 import { useHistory } from "react-router-dom"
-import styles from "./../styles/styles.js"
 
 
 function User({ currentUser, setCurrentUser }) {
@@ -22,14 +21,13 @@ function User({ currentUser, setCurrentUser }) {
 
     return (
         <>
-            <div style={styles.editProfile}>
-                <h1 style={{fontSize: 'xxx-large'}}>your deets</h1>
-                {/* <button onClick={redirectToEditForm}>update your info</button> */}
+            <div className="edit__container">
+                <h1 style={{fontSize: 'xxx-large'}}>Details</h1>
                 <h3>Name: {currentUser && currentUser.name}</h3>
                 <h3>Age: {currentUser && currentUser.age}</h3>
                 <h3>Credit Score: {currentUser && currentUser.credit_score}</h3>
                 <h3>Email: {currentUser && currentUser.email}</h3>
-                <button onClick={redirectToEditForm}>update your info</button><button onClick={deleteUser}>delete my account :(</button>
+                <button onClick={redirectToEditForm}>Update Info</button><button onClick={deleteUser}>Terminate Account?</button>
             </div>
         </>
     )

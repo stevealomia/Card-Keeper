@@ -1,6 +1,5 @@
 import React, { useState } from "react"
 import CardPreview from "../Components/CardPreview"
-import styles from '../styles/styles.js'
 import Error from '../styles/Error'
 
 
@@ -17,9 +16,9 @@ function AllCards({ setCreditCards, creditCards, grabSelectedCard, addToFavorite
 
     return (
         <>
-            <div style={styles.allCards}>
-                <h1 style={{ textAlign: 'center', fontSize: 'xxx-large' }}>we've got what you need</h1>
-                <form style={{marginLeft: 'auto', marginRight: 'auto', width: '130px'}}>
+            <div className="card__container">
+                <h1>Current HOT Deals!</h1>
+                <form>
                     <select  onChange={e => setCompany(e.target.value)} value={company}>
                         <option value="All">See Our Goods</option>
                         <option value="Amazon">Amazon</option>
@@ -32,7 +31,9 @@ function AllCards({ setCreditCards, creditCards, grabSelectedCard, addToFavorite
                     </select>
                 </form>
                 {error ? renderError : null}
-                <div style={{ display: 'grid', gridTemplateColumns: '400px 400px 400px', backgroundColor: '#8ED9FB', textAlign: 'center' }}>
+                <div 
+                className="card__grid"
+                >
                     {renderCards}
                 </div>
             </div>
