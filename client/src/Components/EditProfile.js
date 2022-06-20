@@ -2,7 +2,6 @@ import React, { useState } from "react"
 import { useLocation, useHistory } from "react-router-dom"
 import Input from "../styles/Input"
 import Error from "../styles/Error"
-import styles from "./../styles/styles.js"
 
 function EditProfile({ setCurrentUser }) {
   let locate = useLocation()
@@ -58,10 +57,10 @@ function EditProfile({ setCurrentUser }) {
 
   return (
     <>
-    <div style={styles.editProfile}>
-      <h1>spill your secrets, we never kiss and tell.</h1>
+    <div className="edit__container">
+      <h1>Changes pending...</h1>
       {renderErrors}
-      <form onSubmit={updateUser}>
+      <form className="edit__form" onSubmit={updateUser}>
         Name
         <Input
           name="name"

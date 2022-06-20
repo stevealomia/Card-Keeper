@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import Error from "../styles/Error"
-import styles from '../styles/styles.js'
 
 function Signup({ setCurrentUser }) {
     const [errors, setErrors] = useState([])
@@ -39,7 +38,7 @@ function Signup({ setCurrentUser }) {
                 "Accept": "application/json"
             }, body: JSON.stringify(formData)
         }
-    
+
         fetch("/signup", configObj)
             .then(r => {
                 if (r.ok) {
@@ -59,23 +58,28 @@ function Signup({ setCurrentUser }) {
     const renderErrors = errors.map(e => <Error key={e}>{e}</Error>)
 
     return (
-        <div style={styles.signUp}>
-            <h1>{`we like you too <3`}</h1>
-            <form onSubmit={createUser}>
+        <div className='signup__container'>
+        <h1> Sign Up</h1>
+            <form className='signup' onSubmit={createUser}>
                 Name:
                 <input onChange={handleChange} value={name} name="name" type="text" />
+                < br />
                 Age:
                 <input onChange={handleChange} value={age} name="age" type="number" />
+                < br />
                 Credit Score:
                 <input onChange={handleChange} value={credit_score} name="credit_score" type="number" />
+                < br />
                 Email:
                 <input onChange={handleChange} value={email} name="email" type="email" />
+                < br />
                 Password:
                 <input onChange={handleChange} value={password} name="password" type="password" />
+                < br />
                 <input type="submit" />
                 {errors.length > 0 ? renderErrors : null}
+                <button onClick={goBack}>Go Back</button>
             </form>
-            <button onClick={goBack}>Go Back</button>
         </div>
     )
 }

@@ -1,33 +1,13 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import styled from "styled-components"
 
 const active = {
   opacity: 1,
-  color: "white",
+  backgroundColor: "grey",
   fontWeight: "bold",
-  border: "white 6px solid"
+  color: "white",
+  border: "white 3px solid"
 }
-
-const NavStyle = styled.div`
-    display: flex;
-    width: 100%;
-    position: fixed;
-    text-align: center;
-    font-size: clamp(1.5rem, 3vw + 1rem, .5rem);
-    align-items: center;
-    justify-content: space-around;
-`
-
-const StyledLink = styled(NavLink)`
-      opacity: .66;
-      width: 100%;
-      height: 40px;
-      background: transparent;
-      border: white 6px solid;
-      text-decoration: none;
-      color: white;
-  `
 
 
 function NavBar({ currentUser, setCurrentUser }) {
@@ -40,71 +20,83 @@ function NavBar({ currentUser, setCurrentUser }) {
     fetch("/logout", { method: "DELETE" })
       .then(r => r.json())
       .then(setCurrentUser())
-      // null? instead of empty?
   }
 
   return (
     currentUser ?
       // NavBar for User that is logged in
       (
-        <NavStyle>
-          <StyledLink
+        <div className="nav__style">
+          <NavLink
+            className="nav__tab home__tab"
             exact to="/"
             activeStyle={active}
           >
-            {currentUser.name} is a hot thing
-          </StyledLink>
-          <StyledLink
+            {currentUser.name}'s Home
+          </NavLink>
+          <NavLink
+            className="nav__tab cards__tab"
             exact to="/creditcards"
             activeStyle={active}
           >
-            get stacks
-          </StyledLink>
-          <StyledLink
+            Browse Rewards
+          </NavLink>
+          <NavLink
+            className="nav__tab saved__tab"
             exact to="/savedcards"
             activeStyle={active}
           >
-            your deck
-          </StyledLink>
-          <StyledLink
+            My Saved Cards
+          </NavLink>
+          <NavLink
+            className="nav__tab profile__tab"
             exact to="/profile"
             activeStyle={active}
           >
-            change {currentUser.name}'s deets
-          </StyledLink>
-          <StyledLink style={{fontSize: '18px'}} exact to="/" onClick={handleLogout}>
-            sad to see you go, love to watch you leave ;)
-          </StyledLink>
-        </NavStyle>
+            {currentUser.name}'s Profile
+          </NavLink>
+          <NavLink
+            className="nav__tab logout__tab"
+            exact to="/"
+            onClick={handleLogout}
+          >
+            Logout
+          </NavLink>
+        </div>
       ) :
       (
-        <NavStyle>
-          <StyledLink
+        <div className="nav__style">
+          <NavLink
+            className="nav__tab home__tab"
             exact to="/"
             activeStyle={active}
           >
-            hey, hot thing
-          </StyledLink>
-          <StyledLink
+            Home
+          </NavLink>
+          <NavLink
+
+            className="nav__tab cards__tab"
             exact to="/creditcards"
             activeStyle={active}
           >
-            get stacks
-          </StyledLink>
-          <StyledLink
+            Browse Rewards
+          </NavLink>
+          <NavLink
+            className="nav__tab saved__tab"
             onClick={handleSignInAlert}
             exact to="/signup"
           >
-            my deck
-          </StyledLink>
-          <StyledLink
+            My Saved Cards
+          </NavLink>
+          <NavLink
+            className="nav__tab profile__tab"
             onClick={handleSignInAlert}
             exact to="/signup"
           >
-            my deets
-          </StyledLink>
+            Details
+          </NavLink>
 
-        </NavStyle>
+        </div>
       )
 
   )

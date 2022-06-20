@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 // import styles from '../styles/styles'
 import SavedCardDetails from "./SavedCardDetails"
-import styles from "./../styles/styles.js"
 
 function SavedCardsContainer() {
     const [favorites, setFavorites] = useState([])
@@ -28,8 +27,8 @@ function SavedCardsContainer() {
     const renderFavorites = filteredByCategory.length > 0 ? filteredByCategory.map(card => <SavedCardDetails key={card.id} handleRemove={removeFromFavorites} card={card} />) : <h3>oh no, you haven't saved any {category} cards yet! fix it: save cards + get money honey</h3>
 
     return (
-        <div style={styles.savedWallet}>
-            <h1 style={{fontSize: 'xxx-large'}}>your deck</h1>
+        <div className='saved__cards__container'>
+            <h1>Your Deck</h1>
             <form>
                 <select onChange={e => setCategory(e.target.value)} value={category}>
                     <option value="All">Browse Your Cards By Perks</option>

@@ -79,12 +79,9 @@ function App() {
     }
   }
 
-  // We will need this for every top level child based on if we want user to see this only upon login
-  // if (!currentUser)
-
 
   return (
-    <div style={{ height: "100%" }}>
+    <div className='app'>
       <NavBar
         currentUser={currentUser}
         setCurrentUser={setCurrentUser}

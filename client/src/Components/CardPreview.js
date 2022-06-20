@@ -10,12 +10,16 @@ function CardPreview({ card, grabSelectedCard, addToFavorites }) {
     }
 
     return (
-        <div onClick={() => showCardDetails(card.id, card)}>
-            <h2>{card.category} Rewards!</h2>
-            <img style={{height: "200px"}} src={card.img_url} alt={card.name} />
-            <h2>{card.name}</h2>
-            <h4>{card.description}</h4>
+        <div className="card__container__card" onClick={() => showCardDetails(card.id, card)}>
+            <div>
+                <h2>{card.name}</h2>
+                <img style={{ height: "200px" }} src={card.img_url} alt={card.name} />
+            </div>
+            <div>
+                <h2>{card.category} Rewards!</h2>
+                <h4>{card.description}</h4>
             <button onClick={(e) => addToFavorites(e, card)}>Add to my Wallet!</button>
+            </div>
         </div>
     )
 }
