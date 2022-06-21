@@ -346,6 +346,38 @@ flex-flow: row; */
   background-color: #ddbd8a;
 }
 
+.error__message {
+  margin: 0;
+  padding: 10px;
+  font-size: 20px;
+
+}
+
+.error__alert{
+  background-color: white;
+  color: red;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  font-weight: bold;
+  display: grid;
+  place-content: center;
+
+}
+
+.error__wrapper {
+  color: white;
+  background-color: red;
+  width: fit-content;
+  border-radius: 6px;
+  display: flex;
+  padding: 10px;
+  margin: 10px;
+  flex-flow: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
 @media screen and (max-width: 1300px) {
   .card__grid {
     display: flex;
