@@ -16,8 +16,10 @@ const Wrapper = styled.div`
   width: fit-content;
   border-radius: 6px;
   display: flex;
+  padding: 10px;
+  margin: 10px;
   flex-flow: row;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-around;
 `;
 
@@ -34,6 +36,8 @@ const Alert = styled.span`
 
 const Message = styled.p`
   margin: 0;
+  padding: 10px;
+  font-size: 20px;
 `;
 
 export default Error;
