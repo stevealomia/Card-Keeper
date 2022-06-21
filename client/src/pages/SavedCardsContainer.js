@@ -28,8 +28,9 @@ function SavedCardsContainer() {
 
     return (
         <div className='saved__cards__container'>
+            <div className='saved__cards__container__top'>
             <h1>Your Deck</h1>
-            <form>
+            <div>
                 <select onChange={e => setCategory(e.target.value)} value={category}>
                     <option value="All">Browse Your Cards By Perks</option>
                     <option value="Travel">Travel</option>
@@ -37,9 +38,11 @@ function SavedCardsContainer() {
                     <option value="Shopping">Shopping</option>
                     <option value="Cash Back">Cash Back</option>
                 </select>
-            </form>
-
+            </div>
+            </div>
+            <div className='saved__cards__container__bottom'>
             {renderFavorites}
+            </div>
         </div>
     )
 }
